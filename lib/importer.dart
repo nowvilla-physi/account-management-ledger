@@ -1,4 +1,9 @@
 export 'app.dart';
+export 'constant/colors.dart';
+export 'constant/config.dart';
+export 'constant/dimens.dart';
+export 'constant/strings.dart';
+export 'model/account.dart';
 export 'model/error.dart';
 export 'model/result.dart';
 export 'view/home.dart';
