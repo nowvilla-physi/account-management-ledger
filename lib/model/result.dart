@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
-import 'package:share_life/importer.dart';
+import 'package:account_management_ledger/importer.dart';
 
 part 'result.freezed.dart';
 
