@@ -24,35 +24,38 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: NeumorphicTheme.baseColor(context),
       body: _accounts.isEmpty
           ? const EmptyContainer(message: Strings.noDataMessage)
-          : SingleChildScrollView(
-              child: Center(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: Dimens.allHorizontalPadding.w,
-                    vertical: Dimens.allVerticalPadding.h,
+          : Center(
+              child: Column(
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.only(
+                      left: 24.w,
+                      top: 40.h,
+                      right: 24.w,
+                      bottom: 8.h,
+                    ),
+                    child: NeumorphicSearchField(onChange: printa),
                   ),
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox(height: 8.h),
-                      NeumorphicSearchField(onChange: printa),
-                      NeumorphicButton(
-                        onPressed: () {},
-                        padding: const EdgeInsets.all(12.0),
-                        child: Icon(
-                          Icons.favorite_border,
-                        ),
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 12.w),
+                      child: ListView.separated(
+                        padding: EdgeInsets.zero,
+                        itemBuilder: (context, index) {
+                          return AccountTile(
+                            key: GlobalKey(),
+                            account: _accounts[index],
+                          );
+                        },
+                        itemCount: _accounts.length,
+                        separatorBuilder: (context, index) {
+                          return Divider(height: 8.h);
+                        },
                       ),
-                      NeumorphicButton(
-                          margin: EdgeInsets.only(top: 12),
-                          onPressed: () {},
-                          padding: const EdgeInsets.all(12.0),
-                          child: const Text(
-                            "Toggle Theme",
-                            style: TextStyle(color: AppColors.black),
-                          )),
-                    ],
+                    ),
                   ),
-                ),
+                  SizedBox(height: 24.h),
+                ],
               ),
             ),
       floatingActionButton: NeumorphicFloatingActionButton(

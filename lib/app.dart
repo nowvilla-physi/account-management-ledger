@@ -12,6 +12,14 @@ class App extends StatelessWidget {
       Account("LINE", "xxxxxx@gmail.com", "fdaskldasjf98"),
       Account("Instagram", "xxxxxx@gmail.com", "fdaskldasjf98"),
       Account("Gmail", "xxxxxx@gmail.com", "fdaskldasjf98"),
+      Account("Twitter", "xxxxxx@gmail.com", "fdaskldasjf98"),
+      Account("LINE", "xxxxxx@gmail.com", "fdaskldasjf98"),
+      Account("Instagram", "xxxxxx@gmail.com", "fdaskldasjf98"),
+      Account("Gmail", "xxxxxx@gmail.com", "fdaskldasjf98"),
+      Account("Twitter", "xxxxxx@gmail.com", "fdaskldasjf98"),
+      Account("LINE", "xxxxxx@gmail.com", "fdaskldasjf98"),
+      Account("Instagram", "xxxxxx@gmail.com", "fdaskldasjf98"),
+      Account("Gmail", "xxxxxx@gmail.com", "fdaskldasjf98"),
     ];
     return ScreenUtilInit(
       designSize: const Size(360, 690),
