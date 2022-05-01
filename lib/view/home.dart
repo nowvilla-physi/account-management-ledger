@@ -32,13 +32,13 @@ class _HomePageState extends State<HomePage> {
                       left: 24.w,
                       top: 40.h,
                       right: 24.w,
-                      bottom: 8.h,
+                      bottom: 24.h,
                     ),
                     child: NeumorphicSearchField(onChange: printa),
                   ),
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 12.w),
+                      padding: EdgeInsets.symmetric(horizontal: 16.w),
                       child: ListView.separated(
                         padding: EdgeInsets.zero,
                         itemBuilder: (context, index) {
@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
                         },
                         itemCount: _accounts.length,
                         separatorBuilder: (context, index) {
-                          return Divider(height: 8.h);
+                          return SizedBox(height: 8.h);
                         },
                       ),
                     ),
