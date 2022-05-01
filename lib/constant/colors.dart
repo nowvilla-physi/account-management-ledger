@@ -4,6 +4,7 @@ class AppColors {
   static const accentColor = Color(0xFF6237CF);
   static const mainColor = Color(0xFF9ACD32);
   static const baseColor = Color(0xFFF9F9F8);
+  static const white = Color(0xFFFFFFFF);
   static const gray = Color(0xFFE5E6E4);
   static const black = Color(0xFF333333);
 }

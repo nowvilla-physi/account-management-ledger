@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'importer.dart';
 
@@ -17,7 +17,7 @@ class App extends StatelessWidget {
       designSize: const Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (context) => MaterialApp(
+      builder: (context) => NeumorphicApp(
         debugShowCheckedModeBanner: false,
         builder: (context, widget) {
           ScreenUtil.setContext(context);
@@ -26,9 +26,12 @@ class App extends StatelessWidget {
             child: widget!,
           );
         },
-        theme: ThemeData(
-          primarySwatch: AppMaterialColor.primary,
-          scaffoldBackgroundColor: AppColors.baseColor,
+        themeMode: ThemeMode.light,
+        theme: const NeumorphicThemeData(
+          // accentColor: AppColors.accentColor,
+          baseColor: AppColors.baseColor,
+          lightSource: LightSource.topLeft,
+          depth: 4,
         ),
         home: HomePage(accounts: []),
       ),

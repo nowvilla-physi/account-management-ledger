@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:account_management_ledger/importer.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:account_management_ledger/importer.dart';
 
 class EmptyContainer extends StatelessWidget {
   final String message;
@@ -13,11 +13,15 @@ class EmptyContainer extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Text(
+          NeumorphicText(
             message,
-            style: TextStyle(
-              color: AppColors.black,
-              fontSize: 14.sp,
+            style: NeumorphicStyle(
+              depth: Dimens.depth,
+              color: NeumorphicTheme.defaultTextColor(context),
+            ),
+            textStyle: NeumorphicTextStyle(
+              fontSize: 18.sp,
+              fontWeight: FontWeight.bold,
             ),
           )
         ],
