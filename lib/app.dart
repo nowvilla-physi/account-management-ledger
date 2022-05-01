@@ -26,14 +26,16 @@ class App extends StatelessWidget {
             child: widget!,
           );
         },
-        themeMode: ThemeMode.light,
         theme: const NeumorphicThemeData(
-          // accentColor: AppColors.accentColor,
+          accentColor: AppColors.accentColor,
           baseColor: AppColors.baseColor,
+          defaultTextColor: AppColors.black,
+          variantColor: AppColors.mainColor,
           lightSource: LightSource.topLeft,
-          depth: 4,
+          depth: Dimens.depth,
+          intensity: 1,
         ),
-        home: HomePage(accounts: []),
+        home: HomePage(accounts: data),
       ),
     );
   }

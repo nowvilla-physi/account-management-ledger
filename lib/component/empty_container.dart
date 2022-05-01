@@ -20,7 +20,7 @@ class EmptyContainer extends StatelessWidget {
               color: NeumorphicTheme.defaultTextColor(context),
             ),
             textStyle: NeumorphicTextStyle(
-              fontSize: 18.sp,
+              fontSize: 16.sp,
               fontWeight: FontWeight.bold,
             ),
           )
