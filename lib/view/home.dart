@@ -1,40 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:account_management_ledger/importer.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  final List<Account> accounts;
+
+  const HomePage({Key? key, required this.accounts}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  int _counter = 0;
+  late final _accounts = widget.accounts;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  void printa() {
+    print("#");
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+      body: _accounts.isEmpty
+          ? const EmptyContainer(message: Strings.noDataMessage)
+          : Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    _accounts[0].service,
+                  ),
+                ],
+              ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: printa,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),

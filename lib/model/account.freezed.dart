@@ -22,12 +22,11 @@ Account _$AccountFromJson(Map<String, dynamic> json) {
 class _$AccountTearOff {
   const _$AccountTearOff();
 
-  _Account call(String service, String id, String password, String memo) {
+  _Account call(String service, String id, String password) {
     return _Account(
       service,
       id,
       password,
-      memo,
     );
   }
 
@@ -44,7 +43,6 @@ mixin _$Account {
   String get service => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
-  String get memo => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -55,7 +53,7 @@ mixin _$Account {
 abstract class $AccountCopyWith<$Res> {
   factory $AccountCopyWith(Account value, $Res Function(Account) then) =
       _$AccountCopyWithImpl<$Res>;
-  $Res call({String service, String id, String password, String memo});
+  $Res call({String service, String id, String password});
 }
 
 /// @nodoc
@@ -71,7 +69,6 @@ class _$AccountCopyWithImpl<$Res> implements $AccountCopyWith<$Res> {
     Object? service = freezed,
     Object? id = freezed,
     Object? password = freezed,
-    Object? memo = freezed,
   }) {
     return _then(_value.copyWith(
       service: service == freezed
@@ -86,10 +83,6 @@ class _$AccountCopyWithImpl<$Res> implements $AccountCopyWith<$Res> {
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      memo: memo == freezed
-          ? _value.memo
-          : memo // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -99,7 +92,7 @@ abstract class _$AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
   factory _$AccountCopyWith(_Account value, $Res Function(_Account) then) =
       __$AccountCopyWithImpl<$Res>;
   @override
-  $Res call({String service, String id, String password, String memo});
+  $Res call({String service, String id, String password});
 }
 
 /// @nodoc
@@ -116,7 +109,6 @@ class __$AccountCopyWithImpl<$Res> extends _$AccountCopyWithImpl<$Res>
     Object? service = freezed,
     Object? id = freezed,
     Object? password = freezed,
-    Object? memo = freezed,
   }) {
     return _then(_Account(
       service == freezed
@@ -131,10 +123,6 @@ class __$AccountCopyWithImpl<$Res> extends _$AccountCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      memo == freezed
-          ? _value.memo
-          : memo // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -142,7 +130,7 @@ class __$AccountCopyWithImpl<$Res> extends _$AccountCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Account with DiagnosticableTreeMixin implements _Account {
-  const _$_Account(this.service, this.id, this.password, this.memo);
+  const _$_Account(this.service, this.id, this.password);
 
   factory _$_Account.fromJson(Map<String, dynamic> json) =>
       _$$_AccountFromJson(json);
@@ -153,12 +141,10 @@ class _$_Account with DiagnosticableTreeMixin implements _Account {
   final String id;
   @override
   final String password;
-  @override
-  final String memo;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Account(service: $service, id: $id, password: $password, memo: $memo)';
+    return 'Account(service: $service, id: $id, password: $password)';
   }
 
   @override
@@ -168,8 +154,7 @@ class _$_Account with DiagnosticableTreeMixin implements _Account {
       ..add(DiagnosticsProperty('type', 'Account'))
       ..add(DiagnosticsProperty('service', service))
       ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('password', password))
-      ..add(DiagnosticsProperty('memo', memo));
+      ..add(DiagnosticsProperty('password', password));
   }
 
   @override
@@ -179,8 +164,7 @@ class _$_Account with DiagnosticableTreeMixin implements _Account {
             other is _Account &&
             const DeepCollectionEquality().equals(other.service, service) &&
             const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.password, password) &&
-            const DeepCollectionEquality().equals(other.memo, memo));
+            const DeepCollectionEquality().equals(other.password, password));
   }
 
   @override
@@ -188,8 +172,7 @@ class _$_Account with DiagnosticableTreeMixin implements _Account {
       runtimeType,
       const DeepCollectionEquality().hash(service),
       const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(password),
-      const DeepCollectionEquality().hash(memo));
+      const DeepCollectionEquality().hash(password));
 
   @JsonKey(ignore: true)
   @override
@@ -203,8 +186,8 @@ class _$_Account with DiagnosticableTreeMixin implements _Account {
 }
 
 abstract class _Account implements Account {
-  const factory _Account(
-      String service, String id, String password, String memo) = _$_Account;
+  const factory _Account(String service, String id, String password) =
+      _$_Account;
 
   factory _Account.fromJson(Map<String, dynamic> json) = _$_Account.fromJson;
 
@@ -214,8 +197,6 @@ abstract class _Account implements Account {
   String get id;
   @override
   String get password;
-  @override
-  String get memo;
   @override
   @JsonKey(ignore: true)
   _$AccountCopyWith<_Account> get copyWith =>

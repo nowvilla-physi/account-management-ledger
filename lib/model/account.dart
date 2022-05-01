@@ -11,7 +11,6 @@ class Account with _$Account {
     String service,
     String id,
     String password,
-    String memo,
   ) = _Account;
 
   factory Account.fromJson(Map<String, dynamic> json) =>
