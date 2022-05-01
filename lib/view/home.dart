@@ -59,7 +59,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
       floatingActionButton: NeumorphicFloatingActionButton(
-        child: Icon(Icons.add, size: 24.h),
+        child: Icon(Icons.add, size: 24.h, color: AppColors.mainColor),
         onPressed: () {},
       ),
     );

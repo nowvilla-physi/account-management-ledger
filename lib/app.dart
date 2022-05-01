@@ -40,6 +40,7 @@ class App extends StatelessWidget {
           defaultTextColor: AppColors.black,
           variantColor: AppColors.mainColor,
           lightSource: LightSource.topLeft,
+          shadowLightColorEmboss: AppColors.white,
           depth: Dimens.depth,
           intensity: 1,
         ),
