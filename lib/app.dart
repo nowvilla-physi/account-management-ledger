@@ -7,6 +7,12 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final data = [
+      Account("Twitter", "xxxxxx@gmail.com", "fdaskldasjf98"),
+      Account("LINE", "xxxxxx@gmail.com", "fdaskldasjf98"),
+      Account("Instagram", "xxxxxx@gmail.com", "fdaskldasjf98"),
+      Account("Gmail", "xxxxxx@gmail.com", "fdaskldasjf98"),
+    ];
     return ScreenUtilInit(
       designSize: const Size(360, 690),
       minTextAdapt: true,
@@ -24,7 +30,7 @@ class App extends StatelessWidget {
           primarySwatch: AppMaterialColor.primary,
           scaffoldBackgroundColor: AppColors.baseColor,
         ),
-        home: const HomePage(),
+        home: HomePage(accounts: []),
       ),
     );
   }
