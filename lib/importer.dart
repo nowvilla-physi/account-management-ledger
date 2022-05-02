@@ -16,4 +16,5 @@ export 'model/open_type.dart';
 export 'model/result.dart';
 export 'router/app_router.dart';
 export 'ui_core/modal.dart';
+export 'ui_core/snackbar.dart';
 export 'view/home.dart';

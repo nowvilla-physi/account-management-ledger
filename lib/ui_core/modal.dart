@@ -90,9 +90,19 @@ class AppModal {
           action: _addAccount,
         );
       case OpenType.edit:
-        return AppNeumorphicButton(
-          name: Strings.updateButton,
-          action: _updateAccount,
+        return Column(
+          children: <Widget>[
+            AppNeumorphicButton(
+              name: Strings.updateButton,
+              action: _updateAccount,
+            ),
+            SizedBox(height: 16.h),
+            AppNeumorphicButton(
+              name: Strings.deleteButton,
+              color: AppColors.red,
+              action: _updateAccount,
+            ),
+          ],
         );
     }
   }

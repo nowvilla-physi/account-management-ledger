@@ -12,12 +12,11 @@
 | 2   | [flutter_neumorphic](https://pub.dev/packages/flutter_neumorphic)       | 3.2.0   | [Apache-2.0](https://pub.dev/packages/flutter_neumorphic/license)   |
 | 3   | [flutter_riverpod](https://pub.dev/packages/flutter_riverpod)           | 1.0.3   | [MIT](https://pub.dev/packages/flutter_riverpod/license)            |
 | 4   | [flutter_screenutil](https://pub.dev/packages/flutter_screenutil)       | 5.3.1   | [Apache-2.0](https://pub.dev/packages/flutter_screenutil/license)   |
-| 5   | [flutter_slidable](https://pub.dev/packages/flutter_slidable)           | 1.2.0   | [MIT](https://pub.dev/packages/flutter_slidable/license)            |
-| 6   | [freezed_annotation](https://pub.dev/packages/freezed_annotation)       | 1.1.0   | [MIT](https://pub.dev/packages/freezed_annotation/license)          |
-| 7   | [json_serializable](https://pub.dev/packages/json_serializable)         | 6.1.5   | [BSD-3-Clause](https://pub.dev/packages/json_serializable/license)  |
-| 8   | [logger](https://pub.dev/packages/logger)                               | 1.1.0   | [MIT](https://pub.dev/packages/logger/license)                      |
-| 9   | [modal_bottom_sheet](https://pub.dev/packages/modal_bottom_sheet)       | 2.0.1   | [MIT](https://pub.dev/packages/modal_bottom_sheet/license)          |
-| 10  | [shared_preferences](https://pub.dev/packages/shared_preferences)       | 2.0.13  | [BSD-3-Clause](https://pub.dev/packages/shared_preferences/license) |
+| 5   | [freezed_annotation](https://pub.dev/packages/freezed_annotation)       | 1.1.0   | [MIT](https://pub.dev/packages/freezed_annotation/license)          |
+| 6   | [json_serializable](https://pub.dev/packages/json_serializable)         | 6.1.5   | [BSD-3-Clause](https://pub.dev/packages/json_serializable/license)  |
+| 7   | [logger](https://pub.dev/packages/logger)                               | 1.1.0   | [MIT](https://pub.dev/packages/logger/license)                      |
+| 8   | [modal_bottom_sheet](https://pub.dev/packages/modal_bottom_sheet)       | 2.0.1   | [MIT](https://pub.dev/packages/modal_bottom_sheet/license)          |
+| 9   | [shared_preferences](https://pub.dev/packages/shared_preferences)       | 2.0.13  | [BSD-3-Clause](https://pub.dev/packages/shared_preferences/license) |
 
 ### Dev Dependency Library
 
