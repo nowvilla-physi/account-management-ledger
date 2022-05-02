@@ -1,5 +1,6 @@
 export 'app.dart';
 export 'component/account_tile.dart';
+export 'component/app_label.dart';
 export 'component/empty_container.dart';
 export 'component/neumorphic_button.dart';
 export 'component/neumorphic_search_field.dart';

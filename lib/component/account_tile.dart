@@ -1,3 +1,4 @@
+import 'package:account_management_ledger/model/label_type.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,6 +14,7 @@ class AccountTile extends StatefulWidget {
 }
 
 class _AccountTileState extends State<AccountTile> {
+  /// アカウント情報
   late final _account = widget.account;
 
   late final _modal = AppModal(context);
@@ -43,36 +45,33 @@ class _AccountTileState extends State<AccountTile> {
           subtitle: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              NeumorphicButton(
-                style: const NeumorphicStyle(
-                  boxShape: NeumorphicBoxShape.stadium(),
-                ),
-                margin: EdgeInsets.symmetric(vertical: 4.h),
-                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 3.h),
-                child: Text(
-                  _account.service,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    color: AppColors.mainColor,
-                    overflow: TextOverflow.ellipsis,
-                    fontWeight: FontWeight.bold,
+              Align(
+                alignment: Alignment.centerRight,
+                child: NeumorphicButton(
+                  style: const NeumorphicStyle(),
+                  margin: EdgeInsets.symmetric(vertical: 4.h),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 8.w,
+                    vertical: 4.h,
                   ),
+                  child: Text(
+                    _account.service,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      color: AppColors.mainColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  onPressed: () {
+                    _modal.showModal(OpenType.edit, _account);
+                  },
                 ),
-                onPressed: () {
-                  _modal.showModal(OpenType.edit, _account);
-                },
               ),
-              Text(
-                _account.id,
-                style: TextStyle(fontSize: 14.sp, color: AppColors.black),
-                overflow: TextOverflow.ellipsis,
-              ),
+              AppLabel(label: _account.id, labelType: LabelType.id),
               SizedBox(height: 4.h),
-              Text(
-                _account.password,
-                style: TextStyle(fontSize: 14.sp, color: AppColors.black),
-                overflow: TextOverflow.ellipsis,
-              ),
+              AppLabel(label: _account.password, labelType: LabelType.password),
+              SizedBox(height: 2.h),
             ],
           ),
         ),
