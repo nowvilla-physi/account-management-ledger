@@ -1,4 +1,0 @@
-enum LabelType {
-  id,
-  password,
-}

@@ -1,16 +1,14 @@
-import 'package:account_management_ledger/model/label_type.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:account_management_ledger/importer.dart';
 
 class AppLabel extends StatefulWidget {
   final String label;
-  final LabelType labelType;
 
   const AppLabel({
     Key? key,
     required this.label,
-    required this.labelType,
   }) : super(key: key);
 
   @override
@@ -21,11 +19,14 @@ class _AppLabelState extends State<AppLabel> {
   /// ラベル
   late final _label = widget.label;
 
-  /// ラベルタイプ
-  late final _labelType = widget.labelType;
+  late final _snackbar = AppSnackbar(context);
 
   /// クリップボードにコピーする
-  void _copy() {}
+  Future<void> _copyText() async {
+    final copiedText = ClipboardData(text: _label);
+    await Clipboard.setData(copiedText);
+    _snackbar.showCopiedSnackbar();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +44,7 @@ class _AppLabelState extends State<AppLabel> {
             size: 16.r,
           ),
           onPressed: () {
-            _copy();
+            _copyText();
           },
         ),
         Expanded(

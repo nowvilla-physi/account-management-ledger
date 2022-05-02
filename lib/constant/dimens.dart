@@ -11,4 +11,8 @@ class Dimens {
   // depth.
   static const depth = 4.0;
   static const embossDepth = -4.0;
+
+  // duration.
+  static const snackbarCopiedDurationMS = 500;
+  static const snackbarValidatedDurationMS = 1000;
 }
