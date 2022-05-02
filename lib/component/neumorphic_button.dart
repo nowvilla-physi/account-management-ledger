@@ -39,7 +39,7 @@ class _AppNeumorphicButtonState extends State<AppNeumorphicButton> {
   late final _color = widget.color;
 
   /// TextFormFieldのボーター
-  final border = const UnderlineInputBorder(
+  final _border = const UnderlineInputBorder(
     borderSide: BorderSide(color: AppColors.baseColor),
   );
 
