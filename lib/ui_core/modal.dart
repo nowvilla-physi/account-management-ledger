@@ -12,7 +12,7 @@ class AppModal {
   });
 
   /// [type]に応じたボトムシートを表示する
-  void showModal(OpenType type) {
+  void showModal(OpenType type, [Account? account]) {
     showCupertinoModalBottomSheet(
       context: context,
       builder: (context) {
@@ -44,18 +44,21 @@ class AppModal {
                   NeumorphicTextField(
                     label: Strings.serviceLabel,
                     icon: Icons.local_offer,
+                    initialValue: account?.service,
                     onChange: _onchange,
                   ),
                   SizedBox(height: 8.h),
                   NeumorphicTextField(
                     label: Strings.idLabel,
                     icon: Icons.face,
+                    initialValue: account?.id,
                     onChange: _onchange,
                   ),
                   SizedBox(height: 8.h),
                   NeumorphicTextField(
                     label: Strings.passwordLabel,
                     icon: Icons.lock,
+                    initialValue: account?.password,
                     onChange: _onchange,
                   ),
                   SizedBox(height: 32.h),
