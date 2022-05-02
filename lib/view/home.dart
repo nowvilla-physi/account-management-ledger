@@ -14,8 +14,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   late final _accounts = widget.accounts;
 
+  late final _modal = AppModal(context);
+
   void printa() {
     print("#");
+  }
+
+  void _showModal() {
+    _modal.showModal();
   }
 
   @override
@@ -29,9 +35,9 @@ class _HomePageState extends State<HomePage> {
                 children: <Widget>[
                   Padding(
                     padding: EdgeInsets.only(
-                      left: 24.w,
+                      left: Dimens.allHorizontalPadding.w,
                       top: 40.h,
-                      right: 24.w,
+                      right: Dimens.allHorizontalPadding.w,
                       bottom: 24.h,
                     ),
                     child: NeumorphicSearchField(onChange: printa),
@@ -60,7 +66,9 @@ class _HomePageState extends State<HomePage> {
             ),
       floatingActionButton: NeumorphicFloatingActionButton(
         child: Icon(Icons.add, size: 24.h, color: AppColors.mainColor),
-        onPressed: () {},
+        onPressed: () {
+          _showModal();
+        },
       ),
     );
   }
