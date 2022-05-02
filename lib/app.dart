@@ -7,7 +7,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+    // ScreenUtilでレスポンシブ化を適用
     return ScreenUtilInit(
       designSize: const Size(360, 690),
       minTextAdapt: true,
@@ -21,6 +21,7 @@ class App extends StatelessWidget {
             child: widget!,
           );
         },
+        // NeumorphicThemeを適用
         theme: const NeumorphicThemeData(
           accentColor: AppColors.accentColor,
           baseColor: AppColors.baseColor,
@@ -31,7 +32,7 @@ class App extends StatelessWidget {
           depth: Dimens.depth,
           intensity: 1,
         ),
-        home: HomePage(),
+        home: const HomePage(),
       ),
     );
   }

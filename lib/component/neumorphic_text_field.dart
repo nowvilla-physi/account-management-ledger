@@ -1,5 +1,4 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:account_management_ledger/importer.dart';
 
 class NeumorphicTextField extends StatefulWidget {
@@ -27,6 +26,9 @@ class _NeumorphicTextFieldState extends State<NeumorphicTextField> {
   /// アイコン
   late final _icon = widget.icon;
 
+  /// チェンジイベント
+  late final _onChange = widget.onChange;
+
   /// 初期値
   late final _initialValue = widget.initialValue;
 
@@ -34,6 +36,17 @@ class _NeumorphicTextFieldState extends State<NeumorphicTextField> {
   final border = const UnderlineInputBorder(
     borderSide: BorderSide(color: AppColors.baseColor),
   );
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance?.addPostFrameCallback((_) {
+      // 更新時にsetStateを行う
+      if (_initialValue != null) {
+        _onChange(_initialValue);
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,8 +67,8 @@ class _NeumorphicTextFieldState extends State<NeumorphicTextField> {
           focusedBorder: border,
           prefixIcon: Icon(_icon, color: AppColors.mainColor),
         ),
-        onChanged: (value) {
-          widget.onChange(value);
+        onChanged: (String value) {
+          _onChange(value);
         },
       ),
     );

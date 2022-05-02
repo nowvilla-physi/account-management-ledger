@@ -36,9 +36,9 @@ class _$HomeUiStateTearOff {
     );
   }
 
-  _Failure<T> failure<T>(AppError error) {
+  _Failure<T> failure<T>(Exception e) {
     return _Failure<T>(
-      error,
+      e,
     );
   }
 }
@@ -54,7 +54,7 @@ mixin _$HomeUiState<T> {
     required TResult Function() loading,
     required TResult Function() noAccount,
     required TResult Function(List<Account> accounts) success,
-    required TResult Function(AppError error) failure,
+    required TResult Function(Exception e) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,7 +63,7 @@ mixin _$HomeUiState<T> {
     TResult Function()? loading,
     TResult Function()? noAccount,
     TResult Function(List<Account> accounts)? success,
-    TResult Function(AppError error)? failure,
+    TResult Function(Exception e)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,7 +72,7 @@ mixin _$HomeUiState<T> {
     TResult Function()? loading,
     TResult Function()? noAccount,
     TResult Function(List<Account> accounts)? success,
-    TResult Function(AppError error)? failure,
+    TResult Function(Exception e)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -171,7 +171,7 @@ class _$_Init<T> with DiagnosticableTreeMixin implements _Init<T> {
     required TResult Function() loading,
     required TResult Function() noAccount,
     required TResult Function(List<Account> accounts) success,
-    required TResult Function(AppError error) failure,
+    required TResult Function(Exception e) failure,
   }) {
     return init();
   }
@@ -183,7 +183,7 @@ class _$_Init<T> with DiagnosticableTreeMixin implements _Init<T> {
     TResult Function()? loading,
     TResult Function()? noAccount,
     TResult Function(List<Account> accounts)? success,
-    TResult Function(AppError error)? failure,
+    TResult Function(Exception e)? failure,
   }) {
     return init?.call();
   }
@@ -195,7 +195,7 @@ class _$_Init<T> with DiagnosticableTreeMixin implements _Init<T> {
     TResult Function()? loading,
     TResult Function()? noAccount,
     TResult Function(List<Account> accounts)? success,
-    TResult Function(AppError error)? failure,
+    TResult Function(Exception e)? failure,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -298,7 +298,7 @@ class _$_Loading<T> with DiagnosticableTreeMixin implements _Loading<T> {
     required TResult Function() loading,
     required TResult Function() noAccount,
     required TResult Function(List<Account> accounts) success,
-    required TResult Function(AppError error) failure,
+    required TResult Function(Exception e) failure,
   }) {
     return loading();
   }
@@ -310,7 +310,7 @@ class _$_Loading<T> with DiagnosticableTreeMixin implements _Loading<T> {
     TResult Function()? loading,
     TResult Function()? noAccount,
     TResult Function(List<Account> accounts)? success,
-    TResult Function(AppError error)? failure,
+    TResult Function(Exception e)? failure,
   }) {
     return loading?.call();
   }
@@ -322,7 +322,7 @@ class _$_Loading<T> with DiagnosticableTreeMixin implements _Loading<T> {
     TResult Function()? loading,
     TResult Function()? noAccount,
     TResult Function(List<Account> accounts)? success,
-    TResult Function(AppError error)? failure,
+    TResult Function(Exception e)? failure,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -427,7 +427,7 @@ class _$_NoAccount<T> with DiagnosticableTreeMixin implements _NoAccount<T> {
     required TResult Function() loading,
     required TResult Function() noAccount,
     required TResult Function(List<Account> accounts) success,
-    required TResult Function(AppError error) failure,
+    required TResult Function(Exception e) failure,
   }) {
     return noAccount();
   }
@@ -439,7 +439,7 @@ class _$_NoAccount<T> with DiagnosticableTreeMixin implements _NoAccount<T> {
     TResult Function()? loading,
     TResult Function()? noAccount,
     TResult Function(List<Account> accounts)? success,
-    TResult Function(AppError error)? failure,
+    TResult Function(Exception e)? failure,
   }) {
     return noAccount?.call();
   }
@@ -451,7 +451,7 @@ class _$_NoAccount<T> with DiagnosticableTreeMixin implements _NoAccount<T> {
     TResult Function()? loading,
     TResult Function()? noAccount,
     TResult Function(List<Account> accounts)? success,
-    TResult Function(AppError error)? failure,
+    TResult Function(Exception e)? failure,
     required TResult orElse(),
   }) {
     if (noAccount != null) {
@@ -580,7 +580,7 @@ class _$_Success<T> with DiagnosticableTreeMixin implements _Success<T> {
     required TResult Function() loading,
     required TResult Function() noAccount,
     required TResult Function(List<Account> accounts) success,
-    required TResult Function(AppError error) failure,
+    required TResult Function(Exception e) failure,
   }) {
     return success(accounts);
   }
@@ -592,7 +592,7 @@ class _$_Success<T> with DiagnosticableTreeMixin implements _Success<T> {
     TResult Function()? loading,
     TResult Function()? noAccount,
     TResult Function(List<Account> accounts)? success,
-    TResult Function(AppError error)? failure,
+    TResult Function(Exception e)? failure,
   }) {
     return success?.call(accounts);
   }
@@ -604,7 +604,7 @@ class _$_Success<T> with DiagnosticableTreeMixin implements _Success<T> {
     TResult Function()? loading,
     TResult Function()? noAccount,
     TResult Function(List<Account> accounts)? success,
-    TResult Function(AppError error)? failure,
+    TResult Function(Exception e)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -668,9 +668,7 @@ abstract class _$FailureCopyWith<T, $Res> {
   factory _$FailureCopyWith(
           _Failure<T> value, $Res Function(_Failure<T>) then) =
       __$FailureCopyWithImpl<T, $Res>;
-  $Res call({AppError error});
-
-  $AppErrorCopyWith<$Res> get error;
+  $Res call({Exception e});
 }
 
 /// @nodoc
@@ -684,35 +682,28 @@ class __$FailureCopyWithImpl<T, $Res> extends _$HomeUiStateCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object? error = freezed,
+    Object? e = freezed,
   }) {
     return _then(_Failure<T>(
-      error == freezed
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as AppError,
+      e == freezed
+          ? _value.e
+          : e // ignore: cast_nullable_to_non_nullable
+              as Exception,
     ));
-  }
-
-  @override
-  $AppErrorCopyWith<$Res> get error {
-    return $AppErrorCopyWith<$Res>(_value.error, (value) {
-      return _then(_value.copyWith(error: value));
-    });
   }
 }
 
 /// @nodoc
 
 class _$_Failure<T> with DiagnosticableTreeMixin implements _Failure<T> {
-  const _$_Failure(this.error);
+  const _$_Failure(this.e);
 
   @override
-  final AppError error;
+  final Exception e;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'HomeUiState<$T>.failure(error: $error)';
+    return 'HomeUiState<$T>.failure(e: $e)';
   }
 
   @override
@@ -720,7 +711,7 @@ class _$_Failure<T> with DiagnosticableTreeMixin implements _Failure<T> {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'HomeUiState<$T>.failure'))
-      ..add(DiagnosticsProperty('error', error));
+      ..add(DiagnosticsProperty('e', e));
   }
 
   @override
@@ -728,12 +719,12 @@ class _$_Failure<T> with DiagnosticableTreeMixin implements _Failure<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Failure<T> &&
-            const DeepCollectionEquality().equals(other.error, error));
+            const DeepCollectionEquality().equals(other.e, e));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(e));
 
   @JsonKey(ignore: true)
   @override
@@ -747,9 +738,9 @@ class _$_Failure<T> with DiagnosticableTreeMixin implements _Failure<T> {
     required TResult Function() loading,
     required TResult Function() noAccount,
     required TResult Function(List<Account> accounts) success,
-    required TResult Function(AppError error) failure,
+    required TResult Function(Exception e) failure,
   }) {
-    return failure(error);
+    return failure(e);
   }
 
   @override
@@ -759,9 +750,9 @@ class _$_Failure<T> with DiagnosticableTreeMixin implements _Failure<T> {
     TResult Function()? loading,
     TResult Function()? noAccount,
     TResult Function(List<Account> accounts)? success,
-    TResult Function(AppError error)? failure,
+    TResult Function(Exception e)? failure,
   }) {
-    return failure?.call(error);
+    return failure?.call(e);
   }
 
   @override
@@ -771,11 +762,11 @@ class _$_Failure<T> with DiagnosticableTreeMixin implements _Failure<T> {
     TResult Function()? loading,
     TResult Function()? noAccount,
     TResult Function(List<Account> accounts)? success,
-    TResult Function(AppError error)? failure,
+    TResult Function(Exception e)? failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
-      return failure(error);
+      return failure(e);
     }
     return orElse();
   }
@@ -822,9 +813,9 @@ class _$_Failure<T> with DiagnosticableTreeMixin implements _Failure<T> {
 }
 
 abstract class _Failure<T> implements HomeUiState<T> {
-  const factory _Failure(AppError error) = _$_Failure<T>;
+  const factory _Failure(Exception e) = _$_Failure<T>;
 
-  AppError get error;
+  Exception get e;
   @JsonKey(ignore: true)
   _$FailureCopyWith<T, _Failure<T>> get copyWith =>
       throw _privateConstructorUsedError;

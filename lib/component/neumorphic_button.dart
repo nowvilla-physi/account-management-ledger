@@ -5,12 +5,14 @@ import 'package:account_management_ledger/importer.dart';
 class AppNeumorphicButton extends StatefulWidget {
   final String name;
   final Function action;
+  final Account? account;
   final Color? color;
 
   const AppNeumorphicButton({
     Key? key,
     required this.name,
     required this.action,
+    this.account,
     this.color,
   }) : super(key: key);
 
@@ -21,6 +23,12 @@ class AppNeumorphicButton extends StatefulWidget {
 class _AppNeumorphicButtonState extends State<AppNeumorphicButton> {
   /// ボタン名称
   late final _name = widget.name;
+
+  /// アカウント情報
+  late final _account = widget.account;
+
+  /// タップイベント
+  late final _action = widget.action;
 
   /// ボタンの色
   late final _color = widget.color;
@@ -51,7 +59,11 @@ class _AppNeumorphicButtonState extends State<AppNeumorphicButton> {
           ),
         ),
         onPressed: () {
-          widget.action();
+          if (_account == null) {
+            _action();
+          } else {
+            _action(_account!.uuid);
+          }
         },
       ),
     );

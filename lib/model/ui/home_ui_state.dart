@@ -14,5 +14,5 @@ abstract class HomeUiState<T> with _$HomeUiState<T> {
 
   const factory HomeUiState.success(List<Account> accounts) = _Success;
 
-  const factory HomeUiState.failure(AppError error) = _Failure;
+  const factory HomeUiState.failure(Exception e) = _Failure;
 }

@@ -4,8 +4,13 @@ import 'package:account_management_ledger/importer.dart';
 
 class AccountTile extends StatefulWidget {
   final Account account;
+  final Function showModal;
 
-  const AccountTile({Key? key, required this.account}) : super(key: key);
+  const AccountTile({
+    Key? key,
+    required this.account,
+    required this.showModal,
+  }) : super(key: key);
 
   @override
   State<AccountTile> createState() => _AccountTileState();
@@ -14,8 +19,6 @@ class AccountTile extends StatefulWidget {
 class _AccountTileState extends State<AccountTile> {
   /// アカウント情報
   late final _account = widget.account;
-
-  late final _modal = AppModal(context);
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +51,7 @@ class _AccountTileState extends State<AccountTile> {
                   overflow: TextOverflow.ellipsis,
                 ),
                 onPressed: () {
-                  _modal.showModal(OpenType.edit, _account);
+                  widget.showModal(OpenType.edit, _account);
                 },
               ),
             ),

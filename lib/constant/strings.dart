@@ -20,4 +20,7 @@ class Strings {
 
   // Error message.
   static const failedFetchAccount = 'アカウントの一覧の取得に失敗しました。';
+  static const failedRegisterAccount = 'アカウントの追加に失敗しました。';
+  static const failedUpdateAccount = 'アカウントの更新に失敗しました。';
+  static const failedDeleteAccount = 'アカウントの削除に失敗しました。';
 }

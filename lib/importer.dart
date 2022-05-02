@@ -20,7 +20,6 @@ export 'provider/home_provider.dart';
 export 'repository/home_repository.dart';
 export 'repository/home_repository_impl.dart';
 export 'router/app_router.dart';
-export 'ui_core/modal.dart';
 export 'ui_core/snackbar.dart';
 export 'view/home.dart';
 export 'view_model/home_view_model.dart';

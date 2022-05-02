@@ -1,12 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
-import 'package:account_management_ledger/importer.dart';
 
 part 'result.freezed.dart';
 
 @freezed
-abstract class Result<T> with _$Result<T> {
-  const factory Result.success(T value) = Success<T>;
+abstract class Result<T, E> with _$Result<T, E> {
+  const factory Result.success(T value) = Success<T, E>;
 
-  const factory Result.failure(AppError error) = Failure<T>;
+  const factory Result.failure(E error) = Failure<T, E>;
 }
