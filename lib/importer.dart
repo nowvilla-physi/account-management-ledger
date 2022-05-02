@@ -21,6 +21,7 @@ export 'repository/home_repository.dart';
 export 'repository/home_repository_impl.dart';
 export 'router/app_router.dart';
 export 'ui_core/snackbar.dart';
+export 'ui_core/validator/equal_validator.dart';
 export 'ui_core/validator/required_validator.dart';
 export 'ui_core/validator/validator.dart';
 export 'view/home.dart';

@@ -25,8 +25,15 @@ class _HomePageState extends ConsumerState<HomePage> {
   /// パスワード
   String _password = '';
 
+  // /// バリデーション結果
+  // bool _isValid = false;
+  //
+  // /// エラーメッセージ
+  // String? _errorMessage;
+
   /// サービスを保持する
   void _setService(String service) {
+    _validateWhenAdd();
     setState(() {
       _service = service;
     });
@@ -34,6 +41,7 @@ class _HomePageState extends ConsumerState<HomePage> {
 
   /// Idを保持する
   void _setId(String id) {
+    _validateWhenAdd();
     setState(() {
       _id = id;
     });
@@ -41,10 +49,25 @@ class _HomePageState extends ConsumerState<HomePage> {
 
   /// サービスを保持する
   void _setPassword(String password) {
+    _validateWhenAdd();
     setState(() {
       _password = password;
     });
   }
+
+  /// バリデーション結果を保持する
+  // void _setIsValid(bool isValid) {
+  //   setState(() {
+  //     _isValid = isValid;
+  //   });
+  // }
+
+  /// エラーメッセージを保持する
+  // void _setErrorMessage(String? message) {
+  //   setState(() {
+  //     _errorMessage = message;
+  //   });
+  // }
 
   /// アカウントを追加する
   Future<void> _addAccounts() async {
@@ -71,6 +94,13 @@ class _HomePageState extends ConsumerState<HomePage> {
   /// アカウントを検索する
   void _searchAccounts(String text) {
     ref.read(homeViewModelProvider.notifier).searchAccounts(text);
+  }
+
+  /// バリデーションを行う
+  Result<bool, String> _validateWhenAdd() {
+    return ref
+        .read(homeViewModelProvider.notifier)
+        .validateWhenAdd(_service, _id, _password);
   }
 
   /// FloatingActionButtonを生成する
@@ -157,6 +187,7 @@ class _HomePageState extends ConsumerState<HomePage> {
         return AppNeumorphicButton(
           name: Strings.addButton,
           action: _addAccounts,
+          validate: _validateWhenAdd,
         );
       // 更新ボタンと削除ボタンを表示する
       case OpenType.edit:
@@ -166,6 +197,7 @@ class _HomePageState extends ConsumerState<HomePage> {
               name: Strings.updateButton,
               action: _updateAccount,
               account: account,
+              validate: _validateWhenAdd,
             ),
             SizedBox(height: 16.h),
             AppNeumorphicButton(
@@ -173,6 +205,7 @@ class _HomePageState extends ConsumerState<HomePage> {
               action: _deleteAccount,
               account: account,
               color: AppColors.red,
+              validate: _validateWhenAdd,
             ),
           ],
         );

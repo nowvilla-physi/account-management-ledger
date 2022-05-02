@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logger/logger.dart';
 import 'package:account_management_ledger/importer.dart';
 
@@ -9,8 +10,9 @@ class HomeViewModel extends StateNotifier<HomeUiState> {
         super(const HomeUiState.init());
 
   final HomeRepository _homeRepository;
+  final _requiredValidator = RequiredValidator();
 
-  /// 全アカウント
+  /// 全アカウントを保持する
   List<Account> _allAccounts = [];
 
   /// ロガー
@@ -116,7 +118,7 @@ class HomeViewModel extends StateNotifier<HomeUiState> {
   }
 
   /// 検索によって表示をフィルターする
-  Future<void> searchAccounts(String searchText) async {
+  void searchAccounts(String searchText) {
     state.maybeWhen(
       success: (List<Account> accounts) {
         // 検索文字列が空の場合は全てのアカウントを表示する
@@ -141,5 +143,39 @@ class HomeViewModel extends StateNotifier<HomeUiState> {
         // nop
       },
     );
+  }
+
+  /// 追加時のバリデーションの判定をする
+  Result<bool, String> validateWhenAdd(
+    String service,
+    String id,
+    String password,
+  ) {
+    final results = <String>[service, id, password]
+        .map((value) => _requiredValidator.validate(value))
+        .where((isValid) => !isValid)
+        .toList();
+
+    return results.isEmpty
+        ? const Result.success(true)
+        : Result.failure(_requiredValidator.getMessage());
+  }
+
+  /// バリデーションの判定をする
+  Result<bool, String> validate(String value, String preValue) {
+    _logger.d('Validator Start.');
+    final validators = <Validator>[
+      _requiredValidator,
+      EqualValidator(preValue),
+    ];
+
+    _logger.d('preValue: $preValue');
+
+    final validator = validators
+        .firstWhereOrNull((validator) => validator.validate(value) == false);
+
+    return validator == null
+        ? const Result.success(true)
+        : Result.failure(validator.getMessage());
   }
 }

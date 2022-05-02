@@ -5,6 +5,7 @@ import 'package:account_management_ledger/importer.dart';
 class AppNeumorphicButton extends StatefulWidget {
   final String name;
   final Function action;
+  final Function validate;
   final Account? account;
   final Color? color;
 
@@ -12,6 +13,7 @@ class AppNeumorphicButton extends StatefulWidget {
     Key? key,
     required this.name,
     required this.action,
+    required this.validate,
     this.account,
     this.color,
   }) : super(key: key);
@@ -24,11 +26,13 @@ class _AppNeumorphicButtonState extends State<AppNeumorphicButton> {
   /// ボタン名称
   late final _name = widget.name;
 
-  /// アカウント情報
-  late final _account = widget.account;
-
   /// タップイベント
   late final _action = widget.action;
+
+  late final _validate = widget.validate;
+
+  /// アカウント情報
+  late final _account = widget.account;
 
   /// ボタンの色
   late final _color = widget.color;
@@ -37,6 +41,9 @@ class _AppNeumorphicButtonState extends State<AppNeumorphicButton> {
   final border = const UnderlineInputBorder(
     borderSide: BorderSide(color: AppColors.baseColor),
   );
+
+  /// snackbar
+  late final _snackbar = AppSnackbar(context);
 
   @override
   Widget build(BuildContext context) {
@@ -59,11 +66,20 @@ class _AppNeumorphicButtonState extends State<AppNeumorphicButton> {
           ),
         ),
         onPressed: () {
-          if (_account == null) {
-            _action();
-          } else {
-            _action(_account!.uuid);
-          }
+          final Result<bool, String> result = _validate();
+          result.when(
+            success: (bool isValid) {
+              if (_account == null) {
+                _action();
+              } else {
+                _action(_account!.uuid);
+              }
+            },
+            failure: (String message) {
+              // バリデーションで無効となった場合はスナックバーを表示する
+              _snackbar.showValidatedSnackbar(message);
+            },
+          );
         },
       ),
     );

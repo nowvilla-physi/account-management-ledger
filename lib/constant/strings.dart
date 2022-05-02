@@ -23,5 +23,6 @@ class Strings {
   static const failedRegisterAccount = 'アカウントの追加に失敗しました。';
   static const failedUpdateAccount = 'アカウントの更新に失敗しました。';
   static const failedDeleteAccount = 'アカウントの削除に失敗しました。';
-  static const requiredValidatorMessage = '入力欄は必須項目です。';
+  static const requiredValidatorMessage = '入力欄は全て必須項目です。';
+  static const equalValidatorMessage = '入力内容が更新前の内容と同じです。';
 }
