@@ -1,0 +1,4 @@
+enum LabelType {
+  id,
+  password,
+}
