@@ -161,21 +161,42 @@ class HomeViewModel extends StateNotifier<HomeUiState> {
         : Result.failure(_requiredValidator.getMessage());
   }
 
-  /// バリデーションの判定をする
-  Result<bool, String> validate(String value, String preValue) {
-    _logger.d('Validator Start.');
-    final validators = <Validator>[
-      _requiredValidator,
-      EqualValidator(preValue),
-    ];
+  /// 更新時のバリデーションの判定をする
+  Result<bool, String> validateWhenUpdate(
+    String service,
+    String id,
+    String password,
+    Account preAccount,
+  ) {
+    // 必須チェックを行う
+    return validateWhenAdd(service, id, password).when(
+      failure: (String message) {
+        return Result.failure(message);
+      },
+      success: (bool isValid) {
+        String? message;
+        final isValidList = <bool>[];
+        final values = <String>[service, id, password];
+        final preValues = <String>[
+          preAccount.service,
+          preAccount.id,
+          preAccount.password
+        ];
 
-    _logger.d('preValue: $preValue');
+        // 更新前と同じ文字列かチェックする
+        for (final pairs in IterableZip([preValues, values])) {
+          final equalValidator = EqualValidator(pairs[0]);
+          final isValid = equalValidator.validate(pairs[1]);
+          if (!isValid) {
+            message ??= equalValidator.getMessage();
+          }
+          isValidList.add(isValid);
+        }
 
-    final validator = validators
-        .firstWhereOrNull((validator) => validator.validate(value) == false);
-
-    return validator == null
-        ? const Result.success(true)
-        : Result.failure(validator.getMessage());
+        return isValidList.contains(true)
+            ? const Result.success(true)
+            : Result.failure(message ?? '');
+      },
+    );
   }
 }

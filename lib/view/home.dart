@@ -25,12 +25,6 @@ class _HomePageState extends ConsumerState<HomePage> {
   /// パスワード
   String _password = '';
 
-  // /// バリデーション結果
-  // bool _isValid = false;
-  //
-  // /// エラーメッセージ
-  // String? _errorMessage;
-
   /// サービスを保持する
   void _setService(String service) {
     _validateWhenAdd();
@@ -54,20 +48,6 @@ class _HomePageState extends ConsumerState<HomePage> {
       _password = password;
     });
   }
-
-  /// バリデーション結果を保持する
-  // void _setIsValid(bool isValid) {
-  //   setState(() {
-  //     _isValid = isValid;
-  //   });
-  // }
-
-  /// エラーメッセージを保持する
-  // void _setErrorMessage(String? message) {
-  //   setState(() {
-  //     _errorMessage = message;
-  //   });
-  // }
 
   /// アカウントを追加する
   Future<void> _addAccounts() async {
@@ -96,11 +76,18 @@ class _HomePageState extends ConsumerState<HomePage> {
     ref.read(homeViewModelProvider.notifier).searchAccounts(text);
   }
 
-  /// バリデーションを行う
-  Result<bool, String> _validateWhenAdd() {
+  /// アカウント追加時のバリデーションを行う
+  Result<bool, String> _validateWhenAdd([Account? account]) {
     return ref
         .read(homeViewModelProvider.notifier)
         .validateWhenAdd(_service, _id, _password);
+  }
+
+  /// アカウント更新時のバリデーションを行う
+  Result<bool, String> _validateWhenUpdate(Account preAccount) {
+    return ref
+        .read(homeViewModelProvider.notifier)
+        .validateWhenUpdate(_service, _id, _password, preAccount);
   }
 
   /// FloatingActionButtonを生成する
@@ -197,7 +184,7 @@ class _HomePageState extends ConsumerState<HomePage> {
               name: Strings.updateButton,
               action: _updateAccount,
               account: account,
-              validate: _validateWhenAdd,
+              validate: _validateWhenUpdate,
             ),
             SizedBox(height: 16.h),
             AppNeumorphicButton(
@@ -205,7 +192,6 @@ class _HomePageState extends ConsumerState<HomePage> {
               action: _deleteAccount,
               account: account,
               color: AppColors.red,
-              validate: _validateWhenAdd,
             ),
           ],
         );

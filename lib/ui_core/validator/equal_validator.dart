@@ -1,7 +1,7 @@
 import 'package:account_management_ledger/importer.dart';
 
 class EqualValidator implements Validator<String> {
-  final String? preValue;
+  final String preValue;
 
   EqualValidator(this.preValue);
 
