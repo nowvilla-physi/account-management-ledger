@@ -1,6 +1,6 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:account_management_ledger/importer.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NeumorphicSearchField extends StatefulWidget {
   final Function onChange;
@@ -33,15 +33,22 @@ class _NeumorphicSearchFieldState extends State<NeumorphicSearchField> {
           enabledBorder: border,
           focusedBorder: border,
           hintText: Strings.searchLabel,
-          prefixIcon: IconButton(
-            icon: const Icon(Icons.menu),
-            color: AppColors.mainColor,
-            splashRadius: 1.r,
+          prefixIcon: NeumorphicButton(
+            style: const NeumorphicStyle(
+              depth: Dimens.depth,
+              boxShape: NeumorphicBoxShape.circle(),
+            ),
+            padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 4.h),
+            margin: EdgeInsets.only(left: 8.0.w, right: 16.w),
+            child: const Icon(
+              Icons.menu,
+              color: AppColors.mainColor,
+            ),
             onPressed: () {},
           ),
           suffixIcon: const Icon(Icons.search, color: AppColors.mainColor),
         ),
-        onChanged: (value) {
+        onChanged: (String value) {
           widget.onChange(value);
         },
       ),

@@ -17,6 +17,7 @@
 | 7   | [logger](https://pub.dev/packages/logger)                               | 1.1.0   | [MIT](https://pub.dev/packages/logger/license)                      |
 | 8   | [modal_bottom_sheet](https://pub.dev/packages/modal_bottom_sheet)       | 2.0.1   | [MIT](https://pub.dev/packages/modal_bottom_sheet/license)          |
 | 9   | [shared_preferences](https://pub.dev/packages/shared_preferences)       | 2.0.13  | [BSD-3-Clause](https://pub.dev/packages/shared_preferences/license) |
+| 10  | [uuid](https://pub.dev/packages/uuid)                                   | 3.0.6   | [MIT](https://pub.dev/packages/uuid/license)                        |
 
 ### Dev Dependency Library
 

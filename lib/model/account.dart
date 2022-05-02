@@ -8,6 +8,7 @@ part 'account.g.dart';
 @freezed
 class Account with _$Account {
   const factory Account(
+    String uuid,
     String service,
     String id,
     String password,
