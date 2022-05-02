@@ -8,6 +8,7 @@
 
 | No  | Dependency Library                                                      | Version | License                                                             |
 |-----|-------------------------------------------------------------------------|---------|---------------------------------------------------------------------|
+| 1   | [device_preview](https://pub.dev/packages/device_preview)               | 1.0.0   | [MIT](https://pub.dev/packages/device_preview/license)              |
 | 1   | [flutter_native_splash](https://pub.dev/packages/flutter_native_splash) | 2.1.2+1 | [MIT](https://pub.dev/packages/flutter_native_splash/license)       |
 | 2   | [flutter_neumorphic](https://pub.dev/packages/flutter_neumorphic)       | 3.2.0   | [Apache-2.0](https://pub.dev/packages/flutter_neumorphic/license)   |
 | 3   | [flutter_riverpod](https://pub.dev/packages/flutter_riverpod)           | 1.0.3   | [MIT](https://pub.dev/packages/flutter_riverpod/license)            |
