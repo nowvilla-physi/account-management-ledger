@@ -1,23 +1,20 @@
 import 'package:account_management_ledger/importer.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class HomePage extends StatefulWidget {
-  final List<Account> accounts;
-
-  const HomePage({Key? key, required this.accounts}) : super(key: key);
+class HomePage extends ConsumerStatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  ConsumerState<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  late final _accounts = widget.accounts;
-
+class _HomePageState extends ConsumerState<HomePage> {
   late final _modal = AppModal(context);
 
-  void printa() {
-    print("#");
+  Future<void> _searchAccounts(String text) async {
+    ref.read(homeViewModelProvider.notifier).searchAccounts(text);
   }
 
   void _showAddModal() {
@@ -30,53 +27,67 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: NeumorphicTheme.baseColor(context),
-      body: _accounts.isEmpty
-          ? const EmptyContainer(message: Strings.noDataMessage)
-          : Center(
-              child: Column(
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(
-                      left: Dimens.allHorizontalPadding.w,
-                      top: 40.h,
-                      right: Dimens.allHorizontalPadding.w,
-                      bottom: 24.h,
-                    ),
-                    child: NeumorphicSearchField(onChange: printa),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 16.w),
-                      child: ListView.separated(
-                        padding: EdgeInsets.zero,
-                        itemBuilder: (context, index) {
-                          return AccountTile(
-                            key: GlobalKey(),
-                            account: _accounts[index],
-                          );
-                        },
-                        itemCount: _accounts.length,
-                        separatorBuilder: (context, index) {
-                          return SizedBox(height: 8.h);
-                        },
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 24.h),
-                ],
+    return ref.watch(homeViewModelProvider).when(
+      init: () {
+        ref.watch(homeViewModelProvider.notifier).findAccounts();
+        return const OverlayLoading();
+      },
+      loading: () {
+        return const OverlayLoading();
+      },
+      noAccount: () {
+        return const EmptyContainer(message: Strings.noDataMessage);
+      },
+      success: (List<Account> accounts) {
+        return Scaffold(
+          backgroundColor: NeumorphicTheme.baseColor(context),
+          body: Column(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.only(
+                  left: Dimens.allHorizontalPadding.w,
+                  top: 40.h,
+                  right: Dimens.allHorizontalPadding.w,
+                  bottom: 24.h,
+                ),
+                child: NeumorphicSearchField(onChange: _searchAccounts),
               ),
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  child: ListView.separated(
+                    padding: EdgeInsets.zero,
+                    itemBuilder: (context, index) {
+                      return AccountTile(
+                        key: GlobalKey(),
+                        account: accounts[index],
+                      );
+                    },
+                    itemCount: accounts.length,
+                    separatorBuilder: (context, index) {
+                      return SizedBox(height: 8.h);
+                    },
+                  ),
+                ),
+              ),
+              SizedBox(height: 24.h),
+            ],
+          ),
+          floatingActionButton: NeumorphicFloatingActionButton(
+            style: const NeumorphicStyle(
+              boxShape: NeumorphicBoxShape.circle(),
             ),
-      floatingActionButton: NeumorphicFloatingActionButton(
-        style: const NeumorphicStyle(
-          boxShape: NeumorphicBoxShape.circle(),
-        ),
-        child: Icon(Icons.add, size: 24.h, color: AppColors.mainColor),
-        onPressed: () {
-          _showAddModal();
-        },
-      ),
+            child: Icon(Icons.add, size: 24.h, color: AppColors.mainColor),
+            onPressed: () {
+              _showAddModal();
+            },
+          ),
+        );
+      },
+      failure: (AppError error) {
+        // TODO
+        return OverlayLoading();
+      },
     );
   }
 }

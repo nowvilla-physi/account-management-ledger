@@ -7,20 +7,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final data = [
-      Account("Twit:/[];89^terTwitdterTwitterTwitterTwitterTwitterTwitterTwitter", "xxxxxxxxx][^@p¥5^-60]@gmail.com", "fdaskldasjf98"),
-      Account("ああああああああああああああああああああ あああ　ああ", "xxxxxx@gmail.com", "fdasdfsafasfasfsa  fasdfasfdsafddfdsafdsafdasfdasfdsasdfda"),
-      Account("Instagram", "xxxxxx@gmail.com", "fdaskldasjf98"),
-      Account("Gmail", "xxxxxx@gmail.com", "fdaskldasjf98"),
-      Account("Twitter", "xxxxxx@gmail.com", "fdaskldasjf98"),
-      Account("LINE", "xxxxxx@gmail.com", "fdaskldasjf98"),
-      Account("Instagram", "xxxxxx@gmail.com", "fdaskldasjf98"),
-      Account("Gmail", "xxxxxx@gmail.com", "fdaskldasjf98"),
-      Account("Twitter", "xxxxxx@gmail.com", "fdaskldasjf98"),
-      Account("LINE", "xxxxxx@gmail.com", "fdaskldasjf98"),
-      Account("Instagram", "xxxxxx@gmail.com", "fdaskldasjf98"),
-      Account("Gmail", "xxxxxx@gmail.com", "fdaskldasjf98"),
-    ];
+
     return ScreenUtilInit(
       designSize: const Size(360, 690),
       minTextAdapt: true,
@@ -44,7 +31,7 @@ class App extends StatelessWidget {
           depth: Dimens.depth,
           intensity: 1,
         ),
-        home: HomePage(accounts: data),
+        home: HomePage(),
       ),
     );
   }

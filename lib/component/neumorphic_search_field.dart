@@ -41,7 +41,7 @@ class _NeumorphicSearchFieldState extends State<NeumorphicSearchField> {
           ),
           suffixIcon: const Icon(Icons.search, color: AppColors.mainColor),
         ),
-        onChanged: (value) {
+        onChanged: (String value) {
           widget.onChange(value);
         },
       ),

@@ -9,22 +9,25 @@ class EmptyContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          NeumorphicText(
-            message,
-            style: NeumorphicStyle(
-              depth: Dimens.depth,
-              color: NeumorphicTheme.defaultTextColor(context),
-            ),
-            textStyle: NeumorphicTextStyle(
-              fontSize: 16.sp,
-              fontWeight: FontWeight.bold,
-            ),
-          )
-        ],
+    return Scaffold(
+      backgroundColor: NeumorphicTheme.baseColor(context),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            NeumorphicText(
+              message,
+              style: NeumorphicStyle(
+                depth: Dimens.depth,
+                color: NeumorphicTheme.defaultTextColor(context),
+              ),
+              textStyle: NeumorphicTextStyle(
+                fontSize: 16.sp,
+                fontWeight: FontWeight.bold,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

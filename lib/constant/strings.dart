@@ -14,6 +14,7 @@ class Strings {
   static const deleteButton = '削除する';
 
   // Message.
-  static const noDataMessage = 'データが登録されておりません';
+  static const noDataMessage = 'データが登録されていません';
   static const copiedMessage = 'クリップボードにコピーしました';
+  static const loadingMessage = 'Loading...';
 }
