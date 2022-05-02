@@ -20,8 +20,12 @@ class _HomePageState extends State<HomePage> {
     print("#");
   }
 
-  void _showModal() {
-    _modal.showModal();
+  void _showAddModal() {
+    _modal.showModal(OpenType.add);
+  }
+
+  void _showUpdateModal() {
+    _modal.showModal(OpenType.edit);
   }
 
   @override
@@ -65,9 +69,12 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
       floatingActionButton: NeumorphicFloatingActionButton(
+        style: const NeumorphicStyle(
+          boxShape: NeumorphicBoxShape.circle(),
+        ),
         child: Icon(Icons.add, size: 24.h, color: AppColors.mainColor),
         onPressed: () {
-          _showModal();
+          _showAddModal();
         },
       ),
     );

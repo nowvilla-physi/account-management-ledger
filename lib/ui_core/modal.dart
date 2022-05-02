@@ -11,9 +11,8 @@ class AppModal {
     Key? key,
   });
 
-  void _onchange() {}
-
-  void showModal() {
+  /// [type]に応じたボトムシートを表示する
+  void showModal(OpenType type) {
     showCupertinoModalBottomSheet(
       context: context,
       builder: (context) {
@@ -23,17 +22,23 @@ class AppModal {
               color: AppColors.baseColor,
               padding: EdgeInsets.symmetric(
                 horizontal: Dimens.formFieldHorizontalPadding.w,
-                vertical: Dimens.formFieldVerticalPadding.h,
+                vertical: Dimens.bottomSheetVerticalPadding.h,
               ),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      const Icon(Icons.close, color: AppColors.black),
-                      Image.asset('assets/images/ic_parts.png'),
-                      const Icon(Icons.close, color: Colors.transparent),
-                    ],
+                  NeumorphicButton(
+                    style: const NeumorphicStyle(
+                      boxShape: NeumorphicBoxShape.circle(),
+                    ),
+                    padding: const EdgeInsets.all(4.0),
+                    child: const Icon(
+                      Icons.close,
+                      color: AppColors.mainColor,
+                    ),
+                    onPressed: () {
+                      _dismiss();
+                    },
                   ),
                   SizedBox(height: 16.h),
                   NeumorphicTextField(
@@ -53,6 +58,10 @@ class AppModal {
                     icon: Icons.lock,
                     onChange: _onchange,
                   ),
+                  SizedBox(height: 32.h),
+                  Center(
+                    child: _switchAppNeumorphicButton(type),
+                  ),
                 ],
               ),
             ),
@@ -61,4 +70,31 @@ class AppModal {
       },
     );
   }
+
+  /// ボトムシートを閉じる
+  void _dismiss() {
+    Navigator.pop(context);
+  }
+
+  void _onchange() {}
+
+  /// [type]によって表示するボタンを切り替える
+  Widget _switchAppNeumorphicButton(OpenType type) {
+    switch (type) {
+      case OpenType.add:
+        return AppNeumorphicButton(
+          name: Strings.addButton,
+          action: _addAccount,
+        );
+      case OpenType.edit:
+        return AppNeumorphicButton(
+          name: Strings.updateButton,
+          action: _updateAccount,
+        );
+    }
+  }
+
+  void _addAccount() {}
+
+  void _updateAccount() {}
 }
