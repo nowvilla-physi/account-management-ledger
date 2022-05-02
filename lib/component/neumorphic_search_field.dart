@@ -3,10 +3,12 @@ import 'package:account_management_ledger/importer.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NeumorphicSearchField extends StatefulWidget {
+  final TextEditingController controller;
   final Function onChange;
 
   const NeumorphicSearchField({
     Key? key,
+    required this.controller,
     required this.onChange,
   }) : super(key: key);
 
@@ -15,8 +17,11 @@ class NeumorphicSearchField extends StatefulWidget {
 }
 
 class _NeumorphicSearchFieldState extends State<NeumorphicSearchField> {
+  /// 検索文字列のコントローラ
+  late final _controller = widget.controller;
+
   /// TextFormFieldのボーター
-  final border = const UnderlineInputBorder(
+  final _border = const UnderlineInputBorder(
     borderSide: BorderSide(color: AppColors.baseColor),
   );
 
@@ -29,9 +34,10 @@ class _NeumorphicSearchFieldState extends State<NeumorphicSearchField> {
       ),
       child: TextFormField(
         cursorColor: AppColors.mainColor,
+        controller: _controller,
         decoration: InputDecoration(
-          enabledBorder: border,
-          focusedBorder: border,
+          enabledBorder: _border,
+          focusedBorder: _border,
           hintText: Strings.searchLabel,
           prefixIcon: NeumorphicButton(
             style: const NeumorphicStyle(

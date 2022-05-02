@@ -25,6 +25,9 @@ class _HomePageState extends ConsumerState<HomePage> {
   /// パスワード
   String _password = '';
 
+  /// 検索文字列のコントローラ
+  final _searchTextController = TextEditingController();
+
   /// サービスを保持する
   void _setService(String service) {
     _validateWhenAdd();
@@ -49,12 +52,20 @@ class _HomePageState extends ConsumerState<HomePage> {
     });
   }
 
+  /// 検索文字列を保持する
+  void _setSearchText(String text) {
+    setState(() {
+      _searchTextController.text = text;
+    });
+  }
+
   /// アカウントを追加する
   Future<void> _addAccounts() async {
     await ref
         .read(homeViewModelProvider.notifier)
         .addAccount(_uuid.v4(), _service, _id, _password);
     _dismiss();
+    _setSearchText('');
   }
 
   /// アカウントを更新する
@@ -63,12 +74,14 @@ class _HomePageState extends ConsumerState<HomePage> {
         .read(homeViewModelProvider.notifier)
         .updateAccount(uuid, _service, _id, _password);
     _dismiss();
+    _setSearchText('');
   }
 
   /// アカウントを削除する
   Future<void> _deleteAccount(String uuid) async {
     await ref.read(homeViewModelProvider.notifier).deleteAccount(uuid);
     _dismiss();
+    _setSearchText('');
   }
 
   /// アカウントを検索する
@@ -226,7 +239,10 @@ class _HomePageState extends ConsumerState<HomePage> {
       success: (List<Account> accounts) {
         return Scaffold(
           appBar: NeumorphicAppBar(
-            title: NeumorphicSearchField(onChange: _searchAccounts),
+            title: NeumorphicSearchField(
+              controller: _searchTextController,
+              onChange: _searchAccounts,
+            ),
             padding: 0,
           ),
           backgroundColor: NeumorphicTheme.baseColor(context),
