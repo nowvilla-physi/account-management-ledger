@@ -191,7 +191,7 @@ class _HomePageState extends ConsumerState<HomePage> {
   Widget build(BuildContext context) {
     return ref.watch(homeViewModelProvider).when(
       init: () {
-        /// 画面初期表示時にアカウント一覧を取得する
+        // 画面初期表示時にアカウント一覧を取得する
         ref.watch(homeViewModelProvider.notifier).findAccounts();
         return const OverlayLoading();
       },
@@ -206,39 +206,36 @@ class _HomePageState extends ConsumerState<HomePage> {
       },
       success: (List<Account> accounts) {
         return Scaffold(
+          appBar: NeumorphicAppBar(
+            title: NeumorphicSearchField(onChange: _searchAccounts),
+            padding: 0,
+          ),
           backgroundColor: NeumorphicTheme.baseColor(context),
-          body: Column(
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(
-                  left: Dimens.allHorizontalPadding.w,
-                  top: 40.h,
-                  right: Dimens.allHorizontalPadding.w,
-                  bottom: 24.h,
-                ),
-                child: NeumorphicSearchField(onChange: _searchAccounts),
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.only(
+                left: Dimens.allHorizontalPadding.w,
+                top: 0,
+                right: Dimens.allHorizontalPadding.w,
+                bottom: 24.h,
               ),
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.w),
-                  child: ListView.separated(
-                    padding: EdgeInsets.zero,
-                    itemBuilder: (context, index) {
-                      return AccountTile(
-                        key: GlobalKey(),
-                        account: accounts[index],
-                        showModal: _showModal,
-                      );
-                    },
-                    itemCount: accounts.length,
-                    separatorBuilder: (context, index) {
-                      return SizedBox(height: 8.h);
-                    },
-                  ),
-                ),
+              child: ListView.separated(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                padding: EdgeInsets.zero,
+                itemBuilder: (context, index) {
+                  return AccountTile(
+                    key: GlobalKey(),
+                    account: accounts[index],
+                    showModal: _showModal,
+                  );
+                },
+                itemCount: accounts.length,
+                separatorBuilder: (context, index) {
+                  return SizedBox(height: 8.h);
+                },
               ),
-              SizedBox(height: 24.h),
-            ],
+            ),
           ),
           floatingActionButton: _createFloatingActionButton(),
         );

@@ -1,6 +1,6 @@
 class Dimens {
   // padding.
-  static const allHorizontalPadding = 24.0;
+  static const allHorizontalPadding = 16.0;
   static const formFieldHorizontalPadding = 16.0;
   static const formFieldVerticalPadding = 8.0;
   static const bottomSheetVerticalPadding = 12.0;
