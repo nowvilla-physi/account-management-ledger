@@ -14,8 +14,8 @@ class Strings {
   static const deleteButton = '削除する';
 
   // Message.
-  static const noDataMessage = 'データが登録されていません';
-  static const copiedMessage = 'クリップボードにコピーしました';
+  static const noDataMessage = 'データが登録されていません。';
+  static const copiedMessage = 'クリップボードにコピーしました。';
   static const loadingMessage = 'Loading...';
 
   // Error message.
@@ -23,4 +23,5 @@ class Strings {
   static const failedRegisterAccount = 'アカウントの追加に失敗しました。';
   static const failedUpdateAccount = 'アカウントの更新に失敗しました。';
   static const failedDeleteAccount = 'アカウントの削除に失敗しました。';
+  static const requiredValidatorMessage = '入力欄は必須項目です。';
 }
