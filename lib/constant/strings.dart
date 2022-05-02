@@ -17,4 +17,7 @@ class Strings {
   static const noDataMessage = 'データが登録されていません';
   static const copiedMessage = 'クリップボードにコピーしました';
   static const loadingMessage = 'Loading...';
+
+  // Error message.
+  static const failedFetchAccount = 'アカウントの一覧の取得に失敗しました。';
 }

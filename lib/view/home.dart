@@ -13,6 +13,7 @@ class HomePage extends ConsumerStatefulWidget {
 class _HomePageState extends ConsumerState<HomePage> {
   late final _modal = AppModal(context);
 
+  /// アカウントを検索する
   Future<void> _searchAccounts(String text) async {
     ref.read(homeViewModelProvider.notifier).searchAccounts(text);
   }
@@ -25,10 +26,24 @@ class _HomePageState extends ConsumerState<HomePage> {
     _modal.showModal(OpenType.edit);
   }
 
+  /// FloatingActionButtonを生成する
+  Widget _createFloatingActionButton() {
+    return NeumorphicFloatingActionButton(
+      style: const NeumorphicStyle(
+        boxShape: NeumorphicBoxShape.circle(),
+      ),
+      child: Icon(Icons.add, size: 24.h, color: AppColors.mainColor),
+      onPressed: () {
+        _showAddModal();
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return ref.watch(homeViewModelProvider).when(
       init: () {
+        /// 画面初期表示時にアカウント一覧を取得する
         ref.watch(homeViewModelProvider.notifier).findAccounts();
         return const OverlayLoading();
       },
@@ -36,7 +51,10 @@ class _HomePageState extends ConsumerState<HomePage> {
         return const OverlayLoading();
       },
       noAccount: () {
-        return const EmptyContainer(message: Strings.noDataMessage);
+        return Scaffold(
+          body: const EmptyContainer(message: Strings.noDataMessage),
+          floatingActionButton: _createFloatingActionButton(),
+        );
       },
       success: (List<Account> accounts) {
         return Scaffold(
@@ -73,15 +91,7 @@ class _HomePageState extends ConsumerState<HomePage> {
               SizedBox(height: 24.h),
             ],
           ),
-          floatingActionButton: NeumorphicFloatingActionButton(
-            style: const NeumorphicStyle(
-              boxShape: NeumorphicBoxShape.circle(),
-            ),
-            child: Icon(Icons.add, size: 24.h, color: AppColors.mainColor),
-            onPressed: () {
-              _showAddModal();
-            },
-          ),
+          floatingActionButton: _createFloatingActionButton(),
         );
       },
       failure: (AppError error) {

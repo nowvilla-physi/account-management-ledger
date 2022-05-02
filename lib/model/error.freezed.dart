@@ -18,8 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AppErrorTearOff {
   const _$AppErrorTearOff();
 
-  EmailAlreadyInUse emailAlreadyInUse() {
-    return const EmailAlreadyInUse();
+  FailedFetchAccount failedFetchAccount() {
+    return const FailedFetchAccount();
   }
 }
 
@@ -30,33 +30,33 @@ const $AppError = _$AppErrorTearOff();
 mixin _$AppError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() emailAlreadyInUse,
+    required TResult Function() failedFetchAccount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? emailAlreadyInUse,
+    TResult Function()? failedFetchAccount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? emailAlreadyInUse,
+    TResult Function()? failedFetchAccount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(FailedFetchAccount value) failedFetchAccount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(FailedFetchAccount value)? failedFetchAccount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(FailedFetchAccount value)? failedFetchAccount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -78,44 +78,45 @@ class _$AppErrorCopyWithImpl<$Res> implements $AppErrorCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class $EmailAlreadyInUseCopyWith<$Res> {
-  factory $EmailAlreadyInUseCopyWith(
-          EmailAlreadyInUse value, $Res Function(EmailAlreadyInUse) then) =
-      _$EmailAlreadyInUseCopyWithImpl<$Res>;
+abstract class $FailedFetchAccountCopyWith<$Res> {
+  factory $FailedFetchAccountCopyWith(
+          FailedFetchAccount value, $Res Function(FailedFetchAccount) then) =
+      _$FailedFetchAccountCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$EmailAlreadyInUseCopyWithImpl<$Res> extends _$AppErrorCopyWithImpl<$Res>
-    implements $EmailAlreadyInUseCopyWith<$Res> {
-  _$EmailAlreadyInUseCopyWithImpl(
-      EmailAlreadyInUse _value, $Res Function(EmailAlreadyInUse) _then)
-      : super(_value, (v) => _then(v as EmailAlreadyInUse));
+class _$FailedFetchAccountCopyWithImpl<$Res>
+    extends _$AppErrorCopyWithImpl<$Res>
+    implements $FailedFetchAccountCopyWith<$Res> {
+  _$FailedFetchAccountCopyWithImpl(
+      FailedFetchAccount _value, $Res Function(FailedFetchAccount) _then)
+      : super(_value, (v) => _then(v as FailedFetchAccount));
 
   @override
-  EmailAlreadyInUse get _value => super._value as EmailAlreadyInUse;
+  FailedFetchAccount get _value => super._value as FailedFetchAccount;
 }
 
 /// @nodoc
 
-class _$EmailAlreadyInUse extends EmailAlreadyInUse
+class _$FailedFetchAccount extends FailedFetchAccount
     with DiagnosticableTreeMixin {
-  const _$EmailAlreadyInUse() : super._();
+  const _$FailedFetchAccount() : super._();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AppError.emailAlreadyInUse()';
+    return 'AppError.failedFetchAccount()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'AppError.emailAlreadyInUse'));
+    properties.add(DiagnosticsProperty('type', 'AppError.failedFetchAccount'));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is EmailAlreadyInUse);
+        (other.runtimeType == runtimeType && other is FailedFetchAccount);
   }
 
   @override
@@ -124,27 +125,27 @@ class _$EmailAlreadyInUse extends EmailAlreadyInUse
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() emailAlreadyInUse,
+    required TResult Function() failedFetchAccount,
   }) {
-    return emailAlreadyInUse();
+    return failedFetchAccount();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? emailAlreadyInUse,
+    TResult Function()? failedFetchAccount,
   }) {
-    return emailAlreadyInUse?.call();
+    return failedFetchAccount?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? emailAlreadyInUse,
+    TResult Function()? failedFetchAccount,
     required TResult orElse(),
   }) {
-    if (emailAlreadyInUse != null) {
-      return emailAlreadyInUse();
+    if (failedFetchAccount != null) {
+      return failedFetchAccount();
     }
     return orElse();
   }
@@ -152,33 +153,33 @@ class _$EmailAlreadyInUse extends EmailAlreadyInUse
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(FailedFetchAccount value) failedFetchAccount,
   }) {
-    return emailAlreadyInUse(this);
+    return failedFetchAccount(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(FailedFetchAccount value)? failedFetchAccount,
   }) {
-    return emailAlreadyInUse?.call(this);
+    return failedFetchAccount?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(FailedFetchAccount value)? failedFetchAccount,
     required TResult orElse(),
   }) {
-    if (emailAlreadyInUse != null) {
-      return emailAlreadyInUse(this);
+    if (failedFetchAccount != null) {
+      return failedFetchAccount(this);
     }
     return orElse();
   }
 }
 
-abstract class EmailAlreadyInUse extends AppError {
-  const factory EmailAlreadyInUse() = _$EmailAlreadyInUse;
-  const EmailAlreadyInUse._() : super._();
+abstract class FailedFetchAccount extends AppError {
+  const factory FailedFetchAccount() = _$FailedFetchAccount;
+  const FailedFetchAccount._() : super._();
 }
