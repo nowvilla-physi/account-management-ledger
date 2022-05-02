@@ -15,9 +15,9 @@ class EmptyContainer extends StatelessWidget {
         children: <Widget>[
           NeumorphicText(
             message,
-            style: NeumorphicStyle(
-              depth: Dimens.depth,
-              color: NeumorphicTheme.defaultTextColor(context),
+            style: const NeumorphicStyle(
+              depth: Dimens.textDepth,
+              color: AppColors.black,
             ),
             textStyle: NeumorphicTextStyle(
               fontSize: 16.sp,

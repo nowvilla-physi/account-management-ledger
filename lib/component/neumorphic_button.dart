@@ -38,11 +38,6 @@ class _AppNeumorphicButtonState extends State<AppNeumorphicButton> {
   /// ボタンの色
   late final _color = widget.color;
 
-  /// TextFormFieldのボーター
-  final _border = const UnderlineInputBorder(
-    borderSide: BorderSide(color: AppColors.baseColor),
-  );
-
   /// snackbar
   late final _snackbar = AppSnackbar(context);
 
