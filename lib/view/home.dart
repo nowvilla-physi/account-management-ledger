@@ -103,21 +103,8 @@ class _HomePageState extends ConsumerState<HomePage> {
         .validateWhenUpdate(_service, _id, _password, preAccount);
   }
 
-  /// FloatingActionButtonを生成する
-  Widget _createFloatingActionButton() {
-    return NeumorphicFloatingActionButton(
-      style: const NeumorphicStyle(
-        boxShape: NeumorphicBoxShape.circle(),
-      ),
-      child: Icon(Icons.add, size: 24.h, color: AppColors.mainColor),
-      onPressed: () {
-        _showModal(OpenType.add);
-      },
-    );
-  }
-
   /// [type]に応じたボトムシートを表示する
-  void _showModal(OpenType type, [Account? account]) {
+  void _showModal([OpenType type = OpenType.add, Account? account]) {
     showCupertinoModalBottomSheet(
       context: context,
       builder: (context) {
@@ -132,18 +119,9 @@ class _HomePageState extends ConsumerState<HomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  NeumorphicButton(
-                    style: const NeumorphicStyle(
-                      boxShape: NeumorphicBoxShape.circle(),
-                    ),
-                    padding: const EdgeInsets.all(4.0),
-                    child: const Icon(
-                      Icons.close,
-                      color: AppColors.mainColor,
-                    ),
-                    onPressed: () {
-                      _dismiss();
-                    },
+                  NeumorphicIconButton(
+                    icon: Icons.close,
+                    action: _dismiss,
                   ),
                   SizedBox(height: 16.h),
                   NeumorphicTextField(
@@ -233,7 +211,10 @@ class _HomePageState extends ConsumerState<HomePage> {
       noAccount: () {
         return Scaffold(
           body: const EmptyContainer(message: Strings.noDataMessage),
-          floatingActionButton: _createFloatingActionButton(),
+          floatingActionButton: NeumorphicFloatingButton(
+            icon: Icons.add,
+            action: _showModal,
+          ),
         );
       },
       success: (List<Account> accounts) {
@@ -272,7 +253,10 @@ class _HomePageState extends ConsumerState<HomePage> {
               ),
             ),
           ),
-          floatingActionButton: _createFloatingActionButton(),
+          floatingActionButton: NeumorphicFloatingButton(
+            icon: Icons.add,
+            action: _showModal,
+          ),
         );
       },
       failure: (Exception e) {

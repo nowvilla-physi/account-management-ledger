@@ -17,13 +17,20 @@ class NeumorphicSearchField extends StatefulWidget {
 }
 
 class _NeumorphicSearchFieldState extends State<NeumorphicSearchField> {
-  /// 検索文字列のコントローラ
+  /// 検索文字列のコントローラー
   late final _controller = widget.controller;
 
   /// TextFormFieldのボーター
   final _border = const UnderlineInputBorder(
     borderSide: BorderSide(color: AppColors.baseColor),
   );
+
+  /// ルーター
+  late final _router = AppRouter(context);
+
+  void _toMenu() {
+    _router.toMenu();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,18 +46,11 @@ class _NeumorphicSearchFieldState extends State<NeumorphicSearchField> {
           enabledBorder: _border,
           focusedBorder: _border,
           hintText: Strings.searchLabel,
-          prefixIcon: NeumorphicButton(
-            style: const NeumorphicStyle(
-              depth: Dimens.depth,
-              boxShape: NeumorphicBoxShape.circle(),
-            ),
-            padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 4.h),
-            margin: EdgeInsets.only(left: 8.0.w, right: 16.w),
-            child: const Icon(
-              Icons.menu,
-              color: AppColors.mainColor,
-            ),
-            onPressed: () {},
+          prefixIcon: NeumorphicIconButton(
+            icon: Icons.menu,
+            action: _toMenu,
+            marginLeft: Dimens.menuButtonMarginLeft,
+            marginRight: Dimens.menuButtonMarginRight,
           ),
           suffixIcon: const Icon(Icons.search, color: AppColors.mainColor),
         ),
