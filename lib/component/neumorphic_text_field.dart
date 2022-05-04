@@ -33,7 +33,7 @@ class _NeumorphicTextFieldState extends State<NeumorphicTextField> {
   late final _initialValue = widget.initialValue;
 
   /// TextFormFieldのボーター
-  final border = const UnderlineInputBorder(
+  final _border = const UnderlineInputBorder(
     borderSide: BorderSide(color: AppColors.baseColor),
   );
 
@@ -63,8 +63,8 @@ class _NeumorphicTextFieldState extends State<NeumorphicTextField> {
             _label,
             style: const TextStyle(color: AppColors.mainColor),
           ),
-          enabledBorder: border,
-          focusedBorder: border,
+          enabledBorder: _border,
+          focusedBorder: _border,
           prefixIcon: Icon(_icon, color: AppColors.mainColor),
         ),
         onChanged: (String value) {

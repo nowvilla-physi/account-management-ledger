@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:account_management_ledger/importer.dart';
 
 class AppRouter {
   final BuildContext context;
 
   AppRouter(this.context);
 
+  /// メニュー画面に遷移する
+  void toMenu() {
+    _push(const MenuPage());
+  }
+
+  /// 前の画面に戻る
   void back() {
     Navigator.of(context).pop();
   }

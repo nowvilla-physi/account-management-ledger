@@ -25,6 +25,9 @@ class _HomePageState extends ConsumerState<HomePage> {
   /// パスワード
   String _password = '';
 
+  /// 検索文字列のコントローラ
+  final _searchTextController = TextEditingController();
+
   /// サービスを保持する
   void _setService(String service) {
     _validateWhenAdd();
@@ -49,12 +52,20 @@ class _HomePageState extends ConsumerState<HomePage> {
     });
   }
 
+  /// 検索文字列を保持する
+  void _setSearchText(String text) {
+    setState(() {
+      _searchTextController.text = text;
+    });
+  }
+
   /// アカウントを追加する
   Future<void> _addAccounts() async {
     await ref
         .read(homeViewModelProvider.notifier)
         .addAccount(_uuid.v4(), _service, _id, _password);
     _dismiss();
+    _setSearchText('');
   }
 
   /// アカウントを更新する
@@ -63,12 +74,14 @@ class _HomePageState extends ConsumerState<HomePage> {
         .read(homeViewModelProvider.notifier)
         .updateAccount(uuid, _service, _id, _password);
     _dismiss();
+    _setSearchText('');
   }
 
   /// アカウントを削除する
   Future<void> _deleteAccount(String uuid) async {
     await ref.read(homeViewModelProvider.notifier).deleteAccount(uuid);
     _dismiss();
+    _setSearchText('');
   }
 
   /// アカウントを検索する
@@ -90,21 +103,8 @@ class _HomePageState extends ConsumerState<HomePage> {
         .validateWhenUpdate(_service, _id, _password, preAccount);
   }
 
-  /// FloatingActionButtonを生成する
-  Widget _createFloatingActionButton() {
-    return NeumorphicFloatingActionButton(
-      style: const NeumorphicStyle(
-        boxShape: NeumorphicBoxShape.circle(),
-      ),
-      child: Icon(Icons.add, size: 24.h, color: AppColors.mainColor),
-      onPressed: () {
-        _showModal(OpenType.add);
-      },
-    );
-  }
-
   /// [type]に応じたボトムシートを表示する
-  void _showModal(OpenType type, [Account? account]) {
+  void _showModal([OpenType type = OpenType.add, Account? account]) {
     showCupertinoModalBottomSheet(
       context: context,
       builder: (context) {
@@ -119,18 +119,9 @@ class _HomePageState extends ConsumerState<HomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  NeumorphicButton(
-                    style: const NeumorphicStyle(
-                      boxShape: NeumorphicBoxShape.circle(),
-                    ),
-                    padding: const EdgeInsets.all(4.0),
-                    child: const Icon(
-                      Icons.close,
-                      color: AppColors.mainColor,
-                    ),
-                    onPressed: () {
-                      _dismiss();
-                    },
+                  NeumorphicIconButton(
+                    icon: Icons.close,
+                    action: _dismiss,
                   ),
                   SizedBox(height: 16.h),
                   NeumorphicTextField(
@@ -220,13 +211,19 @@ class _HomePageState extends ConsumerState<HomePage> {
       noAccount: () {
         return Scaffold(
           body: const EmptyContainer(message: Strings.noDataMessage),
-          floatingActionButton: _createFloatingActionButton(),
+          floatingActionButton: NeumorphicFloatingButton(
+            icon: Icons.add,
+            action: _showModal,
+          ),
         );
       },
       success: (List<Account> accounts) {
         return Scaffold(
           appBar: NeumorphicAppBar(
-            title: NeumorphicSearchField(onChange: _searchAccounts),
+            title: NeumorphicSearchField(
+              controller: _searchTextController,
+              onChange: _searchAccounts,
+            ),
             padding: 0,
           ),
           backgroundColor: NeumorphicTheme.baseColor(context),
@@ -256,7 +253,10 @@ class _HomePageState extends ConsumerState<HomePage> {
               ),
             ),
           ),
-          floatingActionButton: _createFloatingActionButton(),
+          floatingActionButton: NeumorphicFloatingButton(
+            icon: Icons.add,
+            action: _showModal,
+          ),
         );
       },
       failure: (Exception e) {
