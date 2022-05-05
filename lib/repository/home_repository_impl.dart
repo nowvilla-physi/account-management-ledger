@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:account_management_ledger/importer.dart';
 
 class HomeRepositoryImpl implements HomeRepository {
+  static const _prefsDataKey = 'accountsKey';
   static const prefsKey = 'accountsKey';
 
   @override
@@ -11,11 +12,11 @@ class HomeRepositoryImpl implements HomeRepository {
     final prefs = await SharedPreferences.getInstance();
 
     // キーがなければアカウントが登録されていない
-    if (!prefs.containsKey(prefsKey)) {
+    if (!prefs.containsKey(_prefsDataKey)) {
       return const Result.success([]);
     }
 
-    final jsons = prefs.getStringList(prefsKey);
+    final jsons = prefs.getStringList(_prefsDataKey);
     if (jsons != null) {
       try {
         // json文字列 -> Map<String, dynamic> -> Account と変換する
@@ -43,7 +44,7 @@ class HomeRepositoryImpl implements HomeRepository {
           .toList();
 
       // json文字列のリストを保存する
-      await prefs.setStringList(prefsKey, jsons);
+      await prefs.setStringList(_prefsDataKey, jsons);
       return Result.success(accounts);
     } on Exception catch (e) {
       return Result.failure(e);
@@ -56,12 +57,12 @@ class HomeRepositoryImpl implements HomeRepository {
     final prefs = await SharedPreferences.getInstance();
 
     // キーがなければアカウントが登録されていない
-    if (!prefs.containsKey(prefsKey)) {
+    if (!prefs.containsKey(_prefsDataKey)) {
       return const Result.success(false);
     }
 
     try {
-      await prefs.remove(prefsKey);
+      await prefs.remove(_prefsDataKey);
       return const Result.success(true);
     } on Exception catch (e) {
       return Result.failure(e);
@@ -69,7 +70,7 @@ class HomeRepositoryImpl implements HomeRepository {
   }
 
   @override
-  Future<Result<List<Account>, Exception>> backup() {
+  Future<Result<bool, Exception>> backup() {
     // TODO: implement backup
     throw UnimplementedError();
   }
