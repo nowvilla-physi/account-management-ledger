@@ -28,5 +28,5 @@ export 'ui_core/validator/equal_validator.dart';
 export 'ui_core/validator/required_validator.dart';
 export 'ui_core/validator/validator.dart';
 export 'view/home.dart';
-export 'view/menu.dart';
+export 'view/menu_page.dart';
 export 'view_model/home_view_model.dart';

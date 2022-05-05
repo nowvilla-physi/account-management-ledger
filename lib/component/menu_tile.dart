@@ -6,6 +6,7 @@ import 'package:account_management_ledger/importer.dart';
 class MenuTile extends StatefulWidget {
   final String title;
   final String info;
+  final String confirmationMessage;
   final IconData icon;
   final Function action;
   final Color? iconColor;
@@ -14,6 +15,7 @@ class MenuTile extends StatefulWidget {
     Key? key,
     required this.title,
     required this.info,
+    required this.confirmationMessage,
     required this.icon,
     required this.action,
     this.iconColor,
@@ -29,6 +31,9 @@ class _MenuTileState extends State<MenuTile> {
 
   /// サブタイトル
   late final _info = widget.info;
+
+  /// 実行前の確認メッセージ
+  late final _confirmationMessage = widget.confirmationMessage;
 
   /// アイコン
   late final _icon = widget.icon;
@@ -62,6 +67,36 @@ class _MenuTileState extends State<MenuTile> {
     );
   }
 
+  /// メニューのアイコンボタンイベントを実行する前の確認ダイアログを表示する
+  Future<void> _showConfirmationDialog() async {
+    showCupertinoDialog(
+      context: context,
+      builder: (context) {
+        return CupertinoAlertDialog(
+          title: const Text(Strings.confirmationLabel),
+          content: Text(_confirmationMessage),
+          actions: [
+            CupertinoDialogAction(
+              child: const Text(
+                Strings.cancelButton,
+                style: TextStyle(color: AppColors.red),
+              ),
+              onPressed: () {
+                _router.back();
+              },
+            ),
+            CupertinoDialogAction(
+              child: const Text(Strings.okButton),
+              onPressed: () {
+                _action();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Neumorphic(
@@ -79,7 +114,7 @@ class _MenuTileState extends State<MenuTile> {
         ),
         trailing: NeumorphicIconButton(
           icon: Icons.chevron_right,
-          action: _action,
+          action: _showConfirmationDialog,
           color: _iconColor,
         ),
       ),

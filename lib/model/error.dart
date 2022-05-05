@@ -14,14 +14,20 @@ abstract class AppError with _$AppError implements Exception {
 
   const factory AppError.failedDeleteAccount() = FailedDeleteAccount;
 
+  const factory AppError.failedDeleteAllAccounts() = FailedDeleteAllAccounts;
+
+  const factory AppError.noAccountDeleteError() = NoAccountDeleteError;
+
   const AppError._();
 
   String get message {
     return when(
-      failedFetchAccount: () => Strings.failedFetchAccount,
-      failedRegisterAccount: () => Strings.failedRegisterAccount,
-      failedUpdateAccount: () => Strings.failedUpdateAccount,
-      failedDeleteAccount: () => Strings.failedDeleteAccount,
+      failedFetchAccount: () => Strings.failedFetchAccountMessage,
+      failedRegisterAccount: () => Strings.failedRegisterAccountMessage,
+      failedUpdateAccount: () => Strings.failedUpdateAccountMessage,
+      failedDeleteAccount: () => Strings.failedDeleteAccountMessage,
+      failedDeleteAllAccounts: () => Strings.failedDeleteAllAccountsMessage,
+      noAccountDeleteError: () => Strings.noAccountDeleteErrorMessage,
     );
   }
 }

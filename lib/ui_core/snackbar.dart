@@ -13,10 +13,7 @@ class AppSnackbar {
   void showCopiedSnackbar() {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
-        content: Text(
-          Strings.copiedMessage,
-          textAlign: TextAlign.center,
-        ),
+        content: Text(Strings.copiedMessage, textAlign: TextAlign.center),
         backgroundColor: AppColors.mainColor,
         duration: Duration(milliseconds: Dimens.snackbarCopiedDurationMS),
       ),
@@ -27,13 +24,23 @@ class AppSnackbar {
   void showValidatedSnackbar(String text) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(
-          text,
-          textAlign: TextAlign.center,
-        ),
+        content: Text(text, textAlign: TextAlign.center),
         backgroundColor: AppColors.red,
         duration: const Duration(
           milliseconds: Dimens.snackbarValidatedDurationMS,
+        ),
+      ),
+    );
+  }
+
+  /// エラー時の際に表示する
+  void showErrorSnackbar(String text) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(text, textAlign: TextAlign.center),
+        backgroundColor: AppColors.red,
+        duration: const Duration(
+          milliseconds: Dimens.snackbarErrorDurationMS,
         ),
       ),
     );
