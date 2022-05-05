@@ -3,7 +3,9 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OverlayLoading extends StatelessWidget {
-  const OverlayLoading({Key? key}) : super(key: key);
+  final String? message;
+
+  const OverlayLoading({Key? key, this.message}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +14,7 @@ class OverlayLoading extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            Strings.loadingMessage,
+            message != null ? message! : Strings.loadingMessage,
             style: TextStyle(
               fontSize: 16.sp,
               color: AppColors.black,

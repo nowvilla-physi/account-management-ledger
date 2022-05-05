@@ -49,4 +49,34 @@ class HomeRepositoryImpl implements HomeRepository {
       return Result.failure(e);
     }
   }
+
+  /// アカウントデータを全て削除する
+  @override
+  Future<Result<bool, Exception>> clearAllAccounts() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    // キーがなければアカウントが登録されていない
+    if (!prefs.containsKey(prefsKey)) {
+      return const Result.success(false);
+    }
+
+    try {
+      await prefs.remove(prefsKey);
+      return const Result.success(true);
+    } on Exception catch (e) {
+      return Result.failure(e);
+    }
+  }
+
+  @override
+  Future<Result<List<Account>, Exception>> backup() {
+    // TODO: implement backup
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Result<List<Account>, Exception>> restore() {
+    // TODO: implement restore
+    throw UnimplementedError();
+  }
 }

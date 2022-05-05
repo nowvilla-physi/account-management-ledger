@@ -199,4 +199,29 @@ class HomeViewModel extends StateNotifier<HomeUiState> {
       },
     );
   }
+
+  /// アカウントを全て削除する
+  Future<void> clearAllAccounts() async {
+    state = const HomeUiState.loading();
+
+    final result = await _homeRepository.clearAllAccounts();
+    result.when(
+      success: (bool isCleared) {
+        if (isCleared) {
+          /// 全てのアカウントの削除に成功した
+          _logger.d('All accounts successfully deleted.');
+          _allAccounts = [];
+          state = const HomeUiState.noAccount();
+        } else {
+          /// 登録しているアカウントデータがなかった
+          _logger.d('Not exist registered accounts.');
+          state = const HomeUiState.failure(AppError.noAccountDeleteError());
+        }
+      },
+      failure: (Exception e) {
+        _logger.e('Failed to delete all accounts. $e');
+        state = const HomeUiState.failure(AppError.failedDeleteAllAccounts());
+      },
+    );
+  }
 }

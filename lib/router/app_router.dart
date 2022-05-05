@@ -6,6 +6,11 @@ class AppRouter {
 
   AppRouter(this.context);
 
+  /// ホーム画面に遷移する
+  void toHome() {
+    _pushAndRemoveUntil(const HomePage());
+  }
+
   /// メニュー画面に遷移する
   void toMenu() {
     _push(const MenuPage());
