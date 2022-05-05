@@ -34,6 +34,7 @@ class Strings {
   static const restoreMessage = 'バックアップされているデータを復旧しますが、よろしいですか?';
   static const allDeleteMessage = '登録しているすべてのアカウントデータとバックアップを削除します。よろしいですか?';
   static const backupSuccessMessage = 'バックアップに成功しました。';
+  static const restoreSuccessMessage = 'アカウントデータの復旧に成功しました。';
   static const menuLoadingMessage = '処理中...';
 
   // Error message.
@@ -42,9 +43,11 @@ class Strings {
   static const failedUpdateAccountMessage = 'アカウントの更新に失敗しました。';
   static const failedDeleteAccountMessage = 'アカウントの削除に失敗しました。';
   static const failedBackupAccountMessage = 'アカウントのバックアップに失敗しました。';
+  static const failedRestoreAccountMessage = 'アカウントの復旧に失敗しました。';
   static const failedDeleteAllAccountsMessage = '全てのアカウントの削除に失敗しました。';
   static const requiredValidatorMessage = '入力欄は全て必須項目です。';
   static const equalValidatorMessage = '入力内容が更新前の内容と同じです。';
   static const noAccountBackupErrorMessage = '登録されているデータがないため、バックアップできません。';
+  static const noBackupRestoreErrorMessage = 'バックアップがないため、復旧できません。';
   static const noAccountDeleteErrorMessage = '登録されているデータがないため、削除できません。';
 }

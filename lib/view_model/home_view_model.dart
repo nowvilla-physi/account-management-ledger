@@ -218,6 +218,38 @@ class HomeViewModel extends StateNotifier<HomeUiState> {
     );
   }
 
+  /// バックアップから復旧する
+  Future<void> restore(String key) async {
+    final result = await _homeRepository.restore(key);
+
+    result.when(
+      success: (List<Account> accounts) {
+        if (accounts.isEmpty) {
+          _logger.e('Failed to restore account.');
+          state = const HomeUiState.failure(AppError.noAccountDeleteError());
+        } else {
+          _logger.d('Account successfully restored.');
+          final allData = _allAccounts + accounts;
+
+          // 現在のアカウントと復旧したデータを結合する
+          final uniqueAccounts = allData
+              .map((Account account) => account.uuid)
+              .toSet()
+              .map((String uuid) => _findAccountByUuid(uuid, allData))
+              .where((Account? account) => account != null)
+              .toList()
+              .cast<Account>();
+          _allAccounts = uniqueAccounts;
+          state = HomeUiState.success(uniqueAccounts);
+        }
+      },
+      failure: (Exception e) {
+        _logger.e('Failed to restore account. $e');
+        state = HomeUiState.failure(e);
+      },
+    );
+  }
+
   /// アカウントを全て削除する
   Future<void> clearAllAccounts(String key, String backupKey) async {
     state = const HomeUiState.loading();
@@ -241,5 +273,9 @@ class HomeViewModel extends StateNotifier<HomeUiState> {
         state = const HomeUiState.failure(AppError.failedDeleteAllAccounts());
       },
     );
+  }
+
+  Account? _findAccountByUuid(String uuid, List<Account> accounts) {
+    return accounts.firstWhereOrNull((Account account) => account.uuid == uuid);
   }
 }

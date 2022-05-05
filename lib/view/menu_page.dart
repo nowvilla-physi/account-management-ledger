@@ -22,13 +22,24 @@ class _MenuPageState extends ConsumerState<MenuPage> {
   Future<void> _backup() async {
     ref.watch(homeViewModelProvider).maybeWhen(
       success: (List<Account> accounts) async {
-        await ref
-            .read(homeViewModelProvider.notifier)
-            .backup(_prefsBackupKey);
+        await ref.read(homeViewModelProvider.notifier).backup(_prefsBackupKey);
         _appSnackbar.showSuccessSnackbar(Strings.backupSuccessMessage);
       },
       orElse: () {
         _appSnackbar.showErrorSnackbar(Strings.noAccountBackupErrorMessage);
+      },
+    );
+  }
+
+  /// バックアップから復旧する
+  Future<void> _restore() async {
+    ref.watch(homeViewModelProvider).maybeWhen(
+      success: (List<Account> accounts) async {
+        await ref.read(homeViewModelProvider.notifier).restore(_prefsBackupKey);
+        _appSnackbar.showSuccessSnackbar(Strings.restoreSuccessMessage);
+      },
+      orElse: () {
+        _appSnackbar.showErrorSnackbar(Strings.noBackupRestoreErrorMessage);
       },
     );
   }
@@ -46,10 +57,6 @@ class _MenuPageState extends ConsumerState<MenuPage> {
         _appSnackbar.showErrorSnackbar(Strings.noAccountDeleteErrorMessage);
       },
     );
-  }
-
-  Future<void> tmp() async {
-    print("##");
   }
 
   void _back() async {
@@ -113,7 +120,7 @@ class _MenuPageState extends ConsumerState<MenuPage> {
                   info: Strings.restoreInfoMessage,
                   confirmationMessage: Strings.restoreMessage,
                   icon: Icons.restore,
-                  action: tmp,
+                  action: _restore,
                 ),
                 SizedBox(height: Dimens.menuTilePaddingBottom.h),
                 MenuTile(

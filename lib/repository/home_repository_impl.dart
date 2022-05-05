@@ -53,6 +53,51 @@ class HomeRepositoryImpl implements HomeRepository {
     }
   }
 
+  /// アカウントデータのバックアップを取る
+  @override
+  Future<Result<bool, Exception>> backup(
+    String key,
+    List<Account> accounts,
+  ) async {
+    final result = await save(key, accounts);
+
+    return result.map(
+      success: (Success<List<Account>, Exception> value) {
+        return const Result.success(true);
+      },
+      failure: (Failure<List<Account>, Exception> value) {
+        return const Result.failure(AppError.failedFetchAccount());
+      },
+    );
+  }
+
+  /// バックアップデータを復旧する
+  @override
+  Future<Result<List<Account>, Exception>> restore(String key) async {
+    final prefs = await SharedPreferences.getInstance();
+
+    // キーがなければアカウントが登録されていない
+    if (!prefs.containsKey(key)) {
+      return const Result.success([]);
+    }
+
+    final jsons = prefs.getStringList(key);
+    if (jsons != null) {
+      try {
+        // json文字列 -> Map<String, dynamic> -> Account と変換する
+        final accounts = jsons
+            .map((String json) => Account.fromJson(jsonDecode(json)))
+            .toList();
+        return Result.success(accounts);
+      } on Exception catch (e) {
+        return Result.failure(e);
+      }
+    } else {
+      // 取得結果がnullの場合はエラーとする
+      return const Result.failure(AppError.failedRestoreAccount());
+    }
+  }
+
   /// アカウントデータを全て削除する
   @override
   Future<Result<bool, Exception>> clearAllAccounts(
@@ -75,29 +120,5 @@ class HomeRepositoryImpl implements HomeRepository {
     } on Exception catch (e) {
       return Result.failure(e);
     }
-  }
-
-  /// アカウントデータのバックアップを取る
-  @override
-  Future<Result<bool, Exception>> backup(
-    String key,
-    List<Account> accounts,
-  ) async {
-    final result = await save(key, accounts);
-
-    return result.map(
-      success: (Success<List<Account>, Exception> value) {
-        return const Result.success(true);
-      },
-      failure: (Failure<List<Account>, Exception> value) {
-        return const Result.failure(AppError.failedFetchAccount());
-      },
-    );
-  }
-
-  @override
-  Future<Result<List<Account>, Exception>> restore(String key) {
-    // TODO: implement restore
-    throw UnimplementedError();
   }
 }
