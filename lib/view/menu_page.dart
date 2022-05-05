@@ -11,15 +11,35 @@ class MenuPage extends ConsumerStatefulWidget {
 }
 
 class _MenuPageState extends ConsumerState<MenuPage> {
+  static const _prefsDataKey = 'accountsKey';
+  static const _prefsBackupKey = 'backupKey';
+
   late final _router = AppRouter(context);
 
   late final _appSnackbar = AppSnackbar(context);
+
+  /// アカウントデータのバックアップをとる
+  Future<void> _backup() async {
+    ref.watch(homeViewModelProvider).maybeWhen(
+      success: (List<Account> accounts) async {
+        await ref
+            .read(homeViewModelProvider.notifier)
+            .backup(_prefsBackupKey);
+        _appSnackbar.showSuccessSnackbar(Strings.backupSuccessMessage);
+      },
+      orElse: () {
+        _appSnackbar.showErrorSnackbar(Strings.noAccountBackupErrorMessage);
+      },
+    );
+  }
 
   /// 全てのアカウントを削除する
   Future<void> _clearAccounts() async {
     ref.watch(homeViewModelProvider).maybeWhen(
       success: (List<Account> accounts) async {
-        await ref.read(homeViewModelProvider.notifier).clearAllAccounts();
+        await ref
+            .read(homeViewModelProvider.notifier)
+            .clearAllAccounts(_prefsDataKey, _prefsBackupKey);
         _router.toHome();
       },
       orElse: () {
@@ -40,7 +60,7 @@ class _MenuPageState extends ConsumerState<MenuPage> {
   Widget build(BuildContext context) {
     return ref.watch(homeViewModelProvider).maybeWhen(
       loading: () {
-        return const OverlayLoading(message: Strings.allDeleteLoadingMessage);
+        return const OverlayLoading(message: Strings.menuLoadingMessage);
       },
       failure: (Exception e) {
         // TODO
@@ -85,7 +105,7 @@ class _MenuPageState extends ConsumerState<MenuPage> {
                   info: Strings.backupInfoMessage,
                   confirmationMessage: Strings.backupMessage,
                   icon: Icons.save_alt,
-                  action: tmp,
+                  action: _backup,
                 ),
                 SizedBox(height: Dimens.menuTilePaddingBottom.h),
                 MenuTile(

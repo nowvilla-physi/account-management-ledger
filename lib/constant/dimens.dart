@@ -23,6 +23,7 @@ class Dimens {
 
   // duration.
   static const snackbarCopiedDurationMS = 500;
+  static const snackbarVSuccessDurationMS = 1000;
   static const snackbarValidatedDurationMS = 1000;
   static const snackbarErrorDurationMS = 1000;
 }
