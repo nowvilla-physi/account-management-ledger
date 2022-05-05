@@ -20,6 +20,17 @@ class AppSnackbar {
     );
   }
 
+  /// バックアップや復旧に成功した際に表示する
+  void showSuccessSnackbar(String text) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(text, textAlign: TextAlign.center),
+        backgroundColor: AppColors.mainColor,
+        duration: const Duration(milliseconds: Dimens.snackbarVSuccessDurationMS),
+      ),
+    );
+  }
+
   /// バリデーションにひっかかった際に表示する
   void showValidatedSnackbar(String text) {
     ScaffoldMessenger.of(context).showSnackBar(

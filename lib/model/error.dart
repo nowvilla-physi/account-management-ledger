@@ -14,6 +14,12 @@ abstract class AppError with _$AppError implements Exception {
 
   const factory AppError.failedDeleteAccount() = FailedDeleteAccount;
 
+  const factory AppError.failedBackupAccount() = FailedBackupAccount;
+
+  const factory AppError.failedRestoreAccount() = FailedRestoreAccount;
+
+  const factory AppError.noBackupRestoreError() = NoBackupRestoreError;
+
   const factory AppError.failedDeleteAllAccounts() = FailedDeleteAllAccounts;
 
   const factory AppError.noAccountDeleteError() = NoAccountDeleteError;
@@ -26,6 +32,9 @@ abstract class AppError with _$AppError implements Exception {
       failedRegisterAccount: () => Strings.failedRegisterAccountMessage,
       failedUpdateAccount: () => Strings.failedUpdateAccountMessage,
       failedDeleteAccount: () => Strings.failedDeleteAccountMessage,
+      failedBackupAccount: () => Strings.failedBackupAccountMessage,
+      failedRestoreAccount: () => Strings.failedRestoreAccountMessage,
+      noBackupRestoreError: () => Strings.noBackupRestoreErrorMessage,
       failedDeleteAllAccounts: () => Strings.failedDeleteAllAccountsMessage,
       noAccountDeleteError: () => Strings.noAccountDeleteErrorMessage,
     );

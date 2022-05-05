@@ -19,8 +19,8 @@ class HomeViewModel extends StateNotifier<HomeUiState> {
   late final _logger = Logger(printer: AppLogPrinter('HomeViewModel'));
 
   /// アカウントの一覧を取得する
-  Future<void> findAccounts() async {
-    final result = await _homeRepository.read();
+  Future<void> findAccounts(String key) async {
+    final result = await _homeRepository.read(key);
 
     result.when(
       success: (List<Account> accounts) {
@@ -40,6 +40,7 @@ class HomeViewModel extends StateNotifier<HomeUiState> {
 
   /// アカウントを追加する
   Future<void> addAccount(
+    String key,
     String uuid,
     String service,
     String id,
@@ -47,7 +48,7 @@ class HomeViewModel extends StateNotifier<HomeUiState> {
   ) async {
     final account = Account(uuid, service, id, password);
     final newAccounts = [..._allAccounts, account];
-    final result = await _homeRepository.save(newAccounts);
+    final result = await _homeRepository.save(key, newAccounts);
 
     result.when(
       success: (List<Account> accounts) {
@@ -64,6 +65,7 @@ class HomeViewModel extends StateNotifier<HomeUiState> {
 
   /// アカウントを更新する
   Future<void> updateAccount(
+    String key,
     String uuid,
     String service,
     String id,
@@ -78,7 +80,7 @@ class HomeViewModel extends StateNotifier<HomeUiState> {
         return account;
       }
     }).toList();
-    final result = await _homeRepository.save(newAccounts);
+    final result = await _homeRepository.save(key, newAccounts);
 
     result.when(
       success: (List<Account> accounts) {
@@ -94,11 +96,11 @@ class HomeViewModel extends StateNotifier<HomeUiState> {
   }
 
   /// アカウントを削除する
-  Future<void> deleteAccount(String uuid) async {
+  Future<void> deleteAccount(String key, String uuid) async {
     // 削除対象のuuid以外でフィルターする
     final newAccounts =
         _allAccounts.where((Account account) => account.uuid != uuid).toList();
-    final result = await _homeRepository.save(newAccounts);
+    final result = await _homeRepository.save(key, newAccounts);
 
     result.when(
       success: (List<Account> accounts) {
@@ -200,16 +202,64 @@ class HomeViewModel extends StateNotifier<HomeUiState> {
     );
   }
 
+  /// アカウントデータのバックアップを取る
+  Future<void> backup(String key) async {
+    final newAccounts = [..._allAccounts];
+    final result = await _homeRepository.backup(key, newAccounts);
+
+    result.when(
+      success: (bool value) {
+        _logger.d('Backup was successful.');
+      },
+      failure: (Exception e) {
+        _logger.e('Failed to backup account. $e');
+        state = HomeUiState.failure(e);
+      },
+    );
+  }
+
+  /// バックアップから復旧する
+  Future<void> restore(String key) async {
+    final result = await _homeRepository.restore(key);
+
+    result.when(
+      success: (List<Account> accounts) {
+        if (accounts.isEmpty) {
+          _logger.e('Failed to restore account.');
+          state = const HomeUiState.failure(AppError.noAccountDeleteError());
+        } else {
+          _logger.d('Account successfully restored.');
+          final allData = _allAccounts + accounts;
+
+          // 現在のアカウントと復旧したデータを結合する
+          final uniqueAccounts = allData
+              .map((Account account) => account.uuid)
+              .toSet()
+              .map((String uuid) => _findAccountByUuid(uuid, allData))
+              .where((Account? account) => account != null)
+              .toList()
+              .cast<Account>();
+          _allAccounts = uniqueAccounts;
+          state = HomeUiState.success(uniqueAccounts);
+        }
+      },
+      failure: (Exception e) {
+        _logger.e('Failed to restore account. $e');
+        state = HomeUiState.failure(e);
+      },
+    );
+  }
+
   /// アカウントを全て削除する
-  Future<void> clearAllAccounts() async {
+  Future<void> clearAllAccounts(String key, String backupKey) async {
     state = const HomeUiState.loading();
 
-    final result = await _homeRepository.clearAllAccounts();
+    final result = await _homeRepository.clearAllAccounts(key, backupKey);
     result.when(
       success: (bool isCleared) {
         if (isCleared) {
           /// 全てのアカウントの削除に成功した
-          _logger.d('All accounts successfully deleted.');
+          _logger.d('All accounts and backup data successfully deleted.');
           _allAccounts = [];
           state = const HomeUiState.noAccount();
         } else {
@@ -219,9 +269,13 @@ class HomeViewModel extends StateNotifier<HomeUiState> {
         }
       },
       failure: (Exception e) {
-        _logger.e('Failed to delete all accounts. $e');
+        _logger.e('Failed to delete all accounts or backup data. $e');
         state = const HomeUiState.failure(AppError.failedDeleteAllAccounts());
       },
     );
+  }
+
+  Account? _findAccountByUuid(String uuid, List<Account> accounts) {
+    return accounts.firstWhereOrNull((Account account) => account.uuid == uuid);
   }
 }

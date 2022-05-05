@@ -88,6 +88,7 @@ class _MenuTileState extends State<MenuTile> {
             CupertinoDialogAction(
               child: const Text(Strings.okButton),
               onPressed: () {
+                _router.back();
                 _action();
               },
             ),

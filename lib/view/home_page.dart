@@ -13,6 +13,8 @@ class HomePage extends ConsumerStatefulWidget {
 }
 
 class _HomePageState extends ConsumerState<HomePage> {
+  static const _prefsDataKey = 'accountsKey';
+
   /// Uuidオブジェクト
   final _uuid = const Uuid();
 
@@ -63,7 +65,7 @@ class _HomePageState extends ConsumerState<HomePage> {
   Future<void> _addAccounts() async {
     await ref
         .read(homeViewModelProvider.notifier)
-        .addAccount(_uuid.v4(), _service, _id, _password);
+        .addAccount(_prefsDataKey, _uuid.v4(), _service, _id, _password);
     _dismiss();
     _setSearchText('');
   }
@@ -72,14 +74,16 @@ class _HomePageState extends ConsumerState<HomePage> {
   Future<void> _updateAccount(String uuid) async {
     await ref
         .read(homeViewModelProvider.notifier)
-        .updateAccount(uuid, _service, _id, _password);
+        .updateAccount(_prefsDataKey, uuid, _service, _id, _password);
     _dismiss();
     _setSearchText('');
   }
 
   /// アカウントを削除する
   Future<void> _deleteAccount(String uuid) async {
-    await ref.read(homeViewModelProvider.notifier).deleteAccount(uuid);
+    await ref
+        .read(homeViewModelProvider.notifier)
+        .deleteAccount(_prefsDataKey, uuid);
     _dismiss();
     _setSearchText('');
   }
@@ -202,7 +206,7 @@ class _HomePageState extends ConsumerState<HomePage> {
     return ref.watch(homeViewModelProvider).when(
       init: () {
         // 画面初期表示時にアカウント一覧を取得する
-        ref.watch(homeViewModelProvider.notifier).findAccounts();
+        ref.watch(homeViewModelProvider.notifier).findAccounts(_prefsDataKey);
         return const OverlayLoading();
       },
       loading: () {

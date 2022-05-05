@@ -34,6 +34,18 @@ class _$AppErrorTearOff {
     return const FailedDeleteAccount();
   }
 
+  FailedBackupAccount failedBackupAccount() {
+    return const FailedBackupAccount();
+  }
+
+  FailedRestoreAccount failedRestoreAccount() {
+    return const FailedRestoreAccount();
+  }
+
+  NoBackupRestoreError noBackupRestoreError() {
+    return const NoBackupRestoreError();
+  }
+
   FailedDeleteAllAccounts failedDeleteAllAccounts() {
     return const FailedDeleteAllAccounts();
   }
@@ -54,6 +66,9 @@ mixin _$AppError {
     required TResult Function() failedRegisterAccount,
     required TResult Function() failedUpdateAccount,
     required TResult Function() failedDeleteAccount,
+    required TResult Function() failedBackupAccount,
+    required TResult Function() failedRestoreAccount,
+    required TResult Function() noBackupRestoreError,
     required TResult Function() failedDeleteAllAccounts,
     required TResult Function() noAccountDeleteError,
   }) =>
@@ -64,6 +79,9 @@ mixin _$AppError {
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
     TResult Function()? failedDeleteAccount,
+    TResult Function()? failedBackupAccount,
+    TResult Function()? failedRestoreAccount,
+    TResult Function()? noBackupRestoreError,
     TResult Function()? failedDeleteAllAccounts,
     TResult Function()? noAccountDeleteError,
   }) =>
@@ -74,6 +92,9 @@ mixin _$AppError {
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
     TResult Function()? failedDeleteAccount,
+    TResult Function()? failedBackupAccount,
+    TResult Function()? failedRestoreAccount,
+    TResult Function()? noBackupRestoreError,
     TResult Function()? failedDeleteAllAccounts,
     TResult Function()? noAccountDeleteError,
     required TResult orElse(),
@@ -86,6 +107,9 @@ mixin _$AppError {
         failedRegisterAccount,
     required TResult Function(FailedUpdateAccount value) failedUpdateAccount,
     required TResult Function(FailedDeleteAccount value) failedDeleteAccount,
+    required TResult Function(FailedBackupAccount value) failedBackupAccount,
+    required TResult Function(FailedRestoreAccount value) failedRestoreAccount,
+    required TResult Function(NoBackupRestoreError value) noBackupRestoreError,
     required TResult Function(FailedDeleteAllAccounts value)
         failedDeleteAllAccounts,
     required TResult Function(NoAccountDeleteError value) noAccountDeleteError,
@@ -97,6 +121,9 @@ mixin _$AppError {
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
     TResult Function(FailedDeleteAccount value)? failedDeleteAccount,
+    TResult Function(FailedBackupAccount value)? failedBackupAccount,
+    TResult Function(FailedRestoreAccount value)? failedRestoreAccount,
+    TResult Function(NoBackupRestoreError value)? noBackupRestoreError,
     TResult Function(FailedDeleteAllAccounts value)? failedDeleteAllAccounts,
     TResult Function(NoAccountDeleteError value)? noAccountDeleteError,
   }) =>
@@ -107,6 +134,9 @@ mixin _$AppError {
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
     TResult Function(FailedDeleteAccount value)? failedDeleteAccount,
+    TResult Function(FailedBackupAccount value)? failedBackupAccount,
+    TResult Function(FailedRestoreAccount value)? failedRestoreAccount,
+    TResult Function(NoBackupRestoreError value)? noBackupRestoreError,
     TResult Function(FailedDeleteAllAccounts value)? failedDeleteAllAccounts,
     TResult Function(NoAccountDeleteError value)? noAccountDeleteError,
     required TResult orElse(),
@@ -181,6 +211,9 @@ class _$FailedFetchAccount extends FailedFetchAccount
     required TResult Function() failedRegisterAccount,
     required TResult Function() failedUpdateAccount,
     required TResult Function() failedDeleteAccount,
+    required TResult Function() failedBackupAccount,
+    required TResult Function() failedRestoreAccount,
+    required TResult Function() noBackupRestoreError,
     required TResult Function() failedDeleteAllAccounts,
     required TResult Function() noAccountDeleteError,
   }) {
@@ -194,6 +227,9 @@ class _$FailedFetchAccount extends FailedFetchAccount
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
     TResult Function()? failedDeleteAccount,
+    TResult Function()? failedBackupAccount,
+    TResult Function()? failedRestoreAccount,
+    TResult Function()? noBackupRestoreError,
     TResult Function()? failedDeleteAllAccounts,
     TResult Function()? noAccountDeleteError,
   }) {
@@ -207,6 +243,9 @@ class _$FailedFetchAccount extends FailedFetchAccount
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
     TResult Function()? failedDeleteAccount,
+    TResult Function()? failedBackupAccount,
+    TResult Function()? failedRestoreAccount,
+    TResult Function()? noBackupRestoreError,
     TResult Function()? failedDeleteAllAccounts,
     TResult Function()? noAccountDeleteError,
     required TResult orElse(),
@@ -225,6 +264,9 @@ class _$FailedFetchAccount extends FailedFetchAccount
         failedRegisterAccount,
     required TResult Function(FailedUpdateAccount value) failedUpdateAccount,
     required TResult Function(FailedDeleteAccount value) failedDeleteAccount,
+    required TResult Function(FailedBackupAccount value) failedBackupAccount,
+    required TResult Function(FailedRestoreAccount value) failedRestoreAccount,
+    required TResult Function(NoBackupRestoreError value) noBackupRestoreError,
     required TResult Function(FailedDeleteAllAccounts value)
         failedDeleteAllAccounts,
     required TResult Function(NoAccountDeleteError value) noAccountDeleteError,
@@ -239,6 +281,9 @@ class _$FailedFetchAccount extends FailedFetchAccount
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
     TResult Function(FailedDeleteAccount value)? failedDeleteAccount,
+    TResult Function(FailedBackupAccount value)? failedBackupAccount,
+    TResult Function(FailedRestoreAccount value)? failedRestoreAccount,
+    TResult Function(NoBackupRestoreError value)? noBackupRestoreError,
     TResult Function(FailedDeleteAllAccounts value)? failedDeleteAllAccounts,
     TResult Function(NoAccountDeleteError value)? noAccountDeleteError,
   }) {
@@ -252,6 +297,9 @@ class _$FailedFetchAccount extends FailedFetchAccount
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
     TResult Function(FailedDeleteAccount value)? failedDeleteAccount,
+    TResult Function(FailedBackupAccount value)? failedBackupAccount,
+    TResult Function(FailedRestoreAccount value)? failedRestoreAccount,
+    TResult Function(NoBackupRestoreError value)? noBackupRestoreError,
     TResult Function(FailedDeleteAllAccounts value)? failedDeleteAllAccounts,
     TResult Function(NoAccountDeleteError value)? noAccountDeleteError,
     required TResult orElse(),
@@ -321,6 +369,9 @@ class _$FailedRegisterAccount extends FailedRegisterAccount
     required TResult Function() failedRegisterAccount,
     required TResult Function() failedUpdateAccount,
     required TResult Function() failedDeleteAccount,
+    required TResult Function() failedBackupAccount,
+    required TResult Function() failedRestoreAccount,
+    required TResult Function() noBackupRestoreError,
     required TResult Function() failedDeleteAllAccounts,
     required TResult Function() noAccountDeleteError,
   }) {
@@ -334,6 +385,9 @@ class _$FailedRegisterAccount extends FailedRegisterAccount
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
     TResult Function()? failedDeleteAccount,
+    TResult Function()? failedBackupAccount,
+    TResult Function()? failedRestoreAccount,
+    TResult Function()? noBackupRestoreError,
     TResult Function()? failedDeleteAllAccounts,
     TResult Function()? noAccountDeleteError,
   }) {
@@ -347,6 +401,9 @@ class _$FailedRegisterAccount extends FailedRegisterAccount
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
     TResult Function()? failedDeleteAccount,
+    TResult Function()? failedBackupAccount,
+    TResult Function()? failedRestoreAccount,
+    TResult Function()? noBackupRestoreError,
     TResult Function()? failedDeleteAllAccounts,
     TResult Function()? noAccountDeleteError,
     required TResult orElse(),
@@ -365,6 +422,9 @@ class _$FailedRegisterAccount extends FailedRegisterAccount
         failedRegisterAccount,
     required TResult Function(FailedUpdateAccount value) failedUpdateAccount,
     required TResult Function(FailedDeleteAccount value) failedDeleteAccount,
+    required TResult Function(FailedBackupAccount value) failedBackupAccount,
+    required TResult Function(FailedRestoreAccount value) failedRestoreAccount,
+    required TResult Function(NoBackupRestoreError value) noBackupRestoreError,
     required TResult Function(FailedDeleteAllAccounts value)
         failedDeleteAllAccounts,
     required TResult Function(NoAccountDeleteError value) noAccountDeleteError,
@@ -379,6 +439,9 @@ class _$FailedRegisterAccount extends FailedRegisterAccount
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
     TResult Function(FailedDeleteAccount value)? failedDeleteAccount,
+    TResult Function(FailedBackupAccount value)? failedBackupAccount,
+    TResult Function(FailedRestoreAccount value)? failedRestoreAccount,
+    TResult Function(NoBackupRestoreError value)? noBackupRestoreError,
     TResult Function(FailedDeleteAllAccounts value)? failedDeleteAllAccounts,
     TResult Function(NoAccountDeleteError value)? noAccountDeleteError,
   }) {
@@ -392,6 +455,9 @@ class _$FailedRegisterAccount extends FailedRegisterAccount
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
     TResult Function(FailedDeleteAccount value)? failedDeleteAccount,
+    TResult Function(FailedBackupAccount value)? failedBackupAccount,
+    TResult Function(FailedRestoreAccount value)? failedRestoreAccount,
+    TResult Function(NoBackupRestoreError value)? noBackupRestoreError,
     TResult Function(FailedDeleteAllAccounts value)? failedDeleteAllAccounts,
     TResult Function(NoAccountDeleteError value)? noAccountDeleteError,
     required TResult orElse(),
@@ -460,6 +526,9 @@ class _$FailedUpdateAccount extends FailedUpdateAccount
     required TResult Function() failedRegisterAccount,
     required TResult Function() failedUpdateAccount,
     required TResult Function() failedDeleteAccount,
+    required TResult Function() failedBackupAccount,
+    required TResult Function() failedRestoreAccount,
+    required TResult Function() noBackupRestoreError,
     required TResult Function() failedDeleteAllAccounts,
     required TResult Function() noAccountDeleteError,
   }) {
@@ -473,6 +542,9 @@ class _$FailedUpdateAccount extends FailedUpdateAccount
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
     TResult Function()? failedDeleteAccount,
+    TResult Function()? failedBackupAccount,
+    TResult Function()? failedRestoreAccount,
+    TResult Function()? noBackupRestoreError,
     TResult Function()? failedDeleteAllAccounts,
     TResult Function()? noAccountDeleteError,
   }) {
@@ -486,6 +558,9 @@ class _$FailedUpdateAccount extends FailedUpdateAccount
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
     TResult Function()? failedDeleteAccount,
+    TResult Function()? failedBackupAccount,
+    TResult Function()? failedRestoreAccount,
+    TResult Function()? noBackupRestoreError,
     TResult Function()? failedDeleteAllAccounts,
     TResult Function()? noAccountDeleteError,
     required TResult orElse(),
@@ -504,6 +579,9 @@ class _$FailedUpdateAccount extends FailedUpdateAccount
         failedRegisterAccount,
     required TResult Function(FailedUpdateAccount value) failedUpdateAccount,
     required TResult Function(FailedDeleteAccount value) failedDeleteAccount,
+    required TResult Function(FailedBackupAccount value) failedBackupAccount,
+    required TResult Function(FailedRestoreAccount value) failedRestoreAccount,
+    required TResult Function(NoBackupRestoreError value) noBackupRestoreError,
     required TResult Function(FailedDeleteAllAccounts value)
         failedDeleteAllAccounts,
     required TResult Function(NoAccountDeleteError value) noAccountDeleteError,
@@ -518,6 +596,9 @@ class _$FailedUpdateAccount extends FailedUpdateAccount
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
     TResult Function(FailedDeleteAccount value)? failedDeleteAccount,
+    TResult Function(FailedBackupAccount value)? failedBackupAccount,
+    TResult Function(FailedRestoreAccount value)? failedRestoreAccount,
+    TResult Function(NoBackupRestoreError value)? noBackupRestoreError,
     TResult Function(FailedDeleteAllAccounts value)? failedDeleteAllAccounts,
     TResult Function(NoAccountDeleteError value)? noAccountDeleteError,
   }) {
@@ -531,6 +612,9 @@ class _$FailedUpdateAccount extends FailedUpdateAccount
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
     TResult Function(FailedDeleteAccount value)? failedDeleteAccount,
+    TResult Function(FailedBackupAccount value)? failedBackupAccount,
+    TResult Function(FailedRestoreAccount value)? failedRestoreAccount,
+    TResult Function(NoBackupRestoreError value)? noBackupRestoreError,
     TResult Function(FailedDeleteAllAccounts value)? failedDeleteAllAccounts,
     TResult Function(NoAccountDeleteError value)? noAccountDeleteError,
     required TResult orElse(),
@@ -599,6 +683,9 @@ class _$FailedDeleteAccount extends FailedDeleteAccount
     required TResult Function() failedRegisterAccount,
     required TResult Function() failedUpdateAccount,
     required TResult Function() failedDeleteAccount,
+    required TResult Function() failedBackupAccount,
+    required TResult Function() failedRestoreAccount,
+    required TResult Function() noBackupRestoreError,
     required TResult Function() failedDeleteAllAccounts,
     required TResult Function() noAccountDeleteError,
   }) {
@@ -612,6 +699,9 @@ class _$FailedDeleteAccount extends FailedDeleteAccount
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
     TResult Function()? failedDeleteAccount,
+    TResult Function()? failedBackupAccount,
+    TResult Function()? failedRestoreAccount,
+    TResult Function()? noBackupRestoreError,
     TResult Function()? failedDeleteAllAccounts,
     TResult Function()? noAccountDeleteError,
   }) {
@@ -625,6 +715,9 @@ class _$FailedDeleteAccount extends FailedDeleteAccount
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
     TResult Function()? failedDeleteAccount,
+    TResult Function()? failedBackupAccount,
+    TResult Function()? failedRestoreAccount,
+    TResult Function()? noBackupRestoreError,
     TResult Function()? failedDeleteAllAccounts,
     TResult Function()? noAccountDeleteError,
     required TResult orElse(),
@@ -643,6 +736,9 @@ class _$FailedDeleteAccount extends FailedDeleteAccount
         failedRegisterAccount,
     required TResult Function(FailedUpdateAccount value) failedUpdateAccount,
     required TResult Function(FailedDeleteAccount value) failedDeleteAccount,
+    required TResult Function(FailedBackupAccount value) failedBackupAccount,
+    required TResult Function(FailedRestoreAccount value) failedRestoreAccount,
+    required TResult Function(NoBackupRestoreError value) noBackupRestoreError,
     required TResult Function(FailedDeleteAllAccounts value)
         failedDeleteAllAccounts,
     required TResult Function(NoAccountDeleteError value) noAccountDeleteError,
@@ -657,6 +753,9 @@ class _$FailedDeleteAccount extends FailedDeleteAccount
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
     TResult Function(FailedDeleteAccount value)? failedDeleteAccount,
+    TResult Function(FailedBackupAccount value)? failedBackupAccount,
+    TResult Function(FailedRestoreAccount value)? failedRestoreAccount,
+    TResult Function(NoBackupRestoreError value)? noBackupRestoreError,
     TResult Function(FailedDeleteAllAccounts value)? failedDeleteAllAccounts,
     TResult Function(NoAccountDeleteError value)? noAccountDeleteError,
   }) {
@@ -670,6 +769,9 @@ class _$FailedDeleteAccount extends FailedDeleteAccount
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
     TResult Function(FailedDeleteAccount value)? failedDeleteAccount,
+    TResult Function(FailedBackupAccount value)? failedBackupAccount,
+    TResult Function(FailedRestoreAccount value)? failedRestoreAccount,
+    TResult Function(NoBackupRestoreError value)? noBackupRestoreError,
     TResult Function(FailedDeleteAllAccounts value)? failedDeleteAllAccounts,
     TResult Function(NoAccountDeleteError value)? noAccountDeleteError,
     required TResult orElse(),
@@ -684,6 +786,479 @@ class _$FailedDeleteAccount extends FailedDeleteAccount
 abstract class FailedDeleteAccount extends AppError {
   const factory FailedDeleteAccount() = _$FailedDeleteAccount;
   const FailedDeleteAccount._() : super._();
+}
+
+/// @nodoc
+abstract class $FailedBackupAccountCopyWith<$Res> {
+  factory $FailedBackupAccountCopyWith(
+          FailedBackupAccount value, $Res Function(FailedBackupAccount) then) =
+      _$FailedBackupAccountCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$FailedBackupAccountCopyWithImpl<$Res>
+    extends _$AppErrorCopyWithImpl<$Res>
+    implements $FailedBackupAccountCopyWith<$Res> {
+  _$FailedBackupAccountCopyWithImpl(
+      FailedBackupAccount _value, $Res Function(FailedBackupAccount) _then)
+      : super(_value, (v) => _then(v as FailedBackupAccount));
+
+  @override
+  FailedBackupAccount get _value => super._value as FailedBackupAccount;
+}
+
+/// @nodoc
+
+class _$FailedBackupAccount extends FailedBackupAccount
+    with DiagnosticableTreeMixin {
+  const _$FailedBackupAccount() : super._();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AppError.failedBackupAccount()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'AppError.failedBackupAccount'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is FailedBackupAccount);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() failedFetchAccount,
+    required TResult Function() failedRegisterAccount,
+    required TResult Function() failedUpdateAccount,
+    required TResult Function() failedDeleteAccount,
+    required TResult Function() failedBackupAccount,
+    required TResult Function() failedRestoreAccount,
+    required TResult Function() noBackupRestoreError,
+    required TResult Function() failedDeleteAllAccounts,
+    required TResult Function() noAccountDeleteError,
+  }) {
+    return failedBackupAccount();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? failedFetchAccount,
+    TResult Function()? failedRegisterAccount,
+    TResult Function()? failedUpdateAccount,
+    TResult Function()? failedDeleteAccount,
+    TResult Function()? failedBackupAccount,
+    TResult Function()? failedRestoreAccount,
+    TResult Function()? noBackupRestoreError,
+    TResult Function()? failedDeleteAllAccounts,
+    TResult Function()? noAccountDeleteError,
+  }) {
+    return failedBackupAccount?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? failedFetchAccount,
+    TResult Function()? failedRegisterAccount,
+    TResult Function()? failedUpdateAccount,
+    TResult Function()? failedDeleteAccount,
+    TResult Function()? failedBackupAccount,
+    TResult Function()? failedRestoreAccount,
+    TResult Function()? noBackupRestoreError,
+    TResult Function()? failedDeleteAllAccounts,
+    TResult Function()? noAccountDeleteError,
+    required TResult orElse(),
+  }) {
+    if (failedBackupAccount != null) {
+      return failedBackupAccount();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FailedFetchAccount value) failedFetchAccount,
+    required TResult Function(FailedRegisterAccount value)
+        failedRegisterAccount,
+    required TResult Function(FailedUpdateAccount value) failedUpdateAccount,
+    required TResult Function(FailedDeleteAccount value) failedDeleteAccount,
+    required TResult Function(FailedBackupAccount value) failedBackupAccount,
+    required TResult Function(FailedRestoreAccount value) failedRestoreAccount,
+    required TResult Function(NoBackupRestoreError value) noBackupRestoreError,
+    required TResult Function(FailedDeleteAllAccounts value)
+        failedDeleteAllAccounts,
+    required TResult Function(NoAccountDeleteError value) noAccountDeleteError,
+  }) {
+    return failedBackupAccount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(FailedFetchAccount value)? failedFetchAccount,
+    TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
+    TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
+    TResult Function(FailedDeleteAccount value)? failedDeleteAccount,
+    TResult Function(FailedBackupAccount value)? failedBackupAccount,
+    TResult Function(FailedRestoreAccount value)? failedRestoreAccount,
+    TResult Function(NoBackupRestoreError value)? noBackupRestoreError,
+    TResult Function(FailedDeleteAllAccounts value)? failedDeleteAllAccounts,
+    TResult Function(NoAccountDeleteError value)? noAccountDeleteError,
+  }) {
+    return failedBackupAccount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FailedFetchAccount value)? failedFetchAccount,
+    TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
+    TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
+    TResult Function(FailedDeleteAccount value)? failedDeleteAccount,
+    TResult Function(FailedBackupAccount value)? failedBackupAccount,
+    TResult Function(FailedRestoreAccount value)? failedRestoreAccount,
+    TResult Function(NoBackupRestoreError value)? noBackupRestoreError,
+    TResult Function(FailedDeleteAllAccounts value)? failedDeleteAllAccounts,
+    TResult Function(NoAccountDeleteError value)? noAccountDeleteError,
+    required TResult orElse(),
+  }) {
+    if (failedBackupAccount != null) {
+      return failedBackupAccount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FailedBackupAccount extends AppError {
+  const factory FailedBackupAccount() = _$FailedBackupAccount;
+  const FailedBackupAccount._() : super._();
+}
+
+/// @nodoc
+abstract class $FailedRestoreAccountCopyWith<$Res> {
+  factory $FailedRestoreAccountCopyWith(FailedRestoreAccount value,
+          $Res Function(FailedRestoreAccount) then) =
+      _$FailedRestoreAccountCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$FailedRestoreAccountCopyWithImpl<$Res>
+    extends _$AppErrorCopyWithImpl<$Res>
+    implements $FailedRestoreAccountCopyWith<$Res> {
+  _$FailedRestoreAccountCopyWithImpl(
+      FailedRestoreAccount _value, $Res Function(FailedRestoreAccount) _then)
+      : super(_value, (v) => _then(v as FailedRestoreAccount));
+
+  @override
+  FailedRestoreAccount get _value => super._value as FailedRestoreAccount;
+}
+
+/// @nodoc
+
+class _$FailedRestoreAccount extends FailedRestoreAccount
+    with DiagnosticableTreeMixin {
+  const _$FailedRestoreAccount() : super._();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AppError.failedRestoreAccount()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'AppError.failedRestoreAccount'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is FailedRestoreAccount);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() failedFetchAccount,
+    required TResult Function() failedRegisterAccount,
+    required TResult Function() failedUpdateAccount,
+    required TResult Function() failedDeleteAccount,
+    required TResult Function() failedBackupAccount,
+    required TResult Function() failedRestoreAccount,
+    required TResult Function() noBackupRestoreError,
+    required TResult Function() failedDeleteAllAccounts,
+    required TResult Function() noAccountDeleteError,
+  }) {
+    return failedRestoreAccount();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? failedFetchAccount,
+    TResult Function()? failedRegisterAccount,
+    TResult Function()? failedUpdateAccount,
+    TResult Function()? failedDeleteAccount,
+    TResult Function()? failedBackupAccount,
+    TResult Function()? failedRestoreAccount,
+    TResult Function()? noBackupRestoreError,
+    TResult Function()? failedDeleteAllAccounts,
+    TResult Function()? noAccountDeleteError,
+  }) {
+    return failedRestoreAccount?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? failedFetchAccount,
+    TResult Function()? failedRegisterAccount,
+    TResult Function()? failedUpdateAccount,
+    TResult Function()? failedDeleteAccount,
+    TResult Function()? failedBackupAccount,
+    TResult Function()? failedRestoreAccount,
+    TResult Function()? noBackupRestoreError,
+    TResult Function()? failedDeleteAllAccounts,
+    TResult Function()? noAccountDeleteError,
+    required TResult orElse(),
+  }) {
+    if (failedRestoreAccount != null) {
+      return failedRestoreAccount();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FailedFetchAccount value) failedFetchAccount,
+    required TResult Function(FailedRegisterAccount value)
+        failedRegisterAccount,
+    required TResult Function(FailedUpdateAccount value) failedUpdateAccount,
+    required TResult Function(FailedDeleteAccount value) failedDeleteAccount,
+    required TResult Function(FailedBackupAccount value) failedBackupAccount,
+    required TResult Function(FailedRestoreAccount value) failedRestoreAccount,
+    required TResult Function(NoBackupRestoreError value) noBackupRestoreError,
+    required TResult Function(FailedDeleteAllAccounts value)
+        failedDeleteAllAccounts,
+    required TResult Function(NoAccountDeleteError value) noAccountDeleteError,
+  }) {
+    return failedRestoreAccount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(FailedFetchAccount value)? failedFetchAccount,
+    TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
+    TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
+    TResult Function(FailedDeleteAccount value)? failedDeleteAccount,
+    TResult Function(FailedBackupAccount value)? failedBackupAccount,
+    TResult Function(FailedRestoreAccount value)? failedRestoreAccount,
+    TResult Function(NoBackupRestoreError value)? noBackupRestoreError,
+    TResult Function(FailedDeleteAllAccounts value)? failedDeleteAllAccounts,
+    TResult Function(NoAccountDeleteError value)? noAccountDeleteError,
+  }) {
+    return failedRestoreAccount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FailedFetchAccount value)? failedFetchAccount,
+    TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
+    TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
+    TResult Function(FailedDeleteAccount value)? failedDeleteAccount,
+    TResult Function(FailedBackupAccount value)? failedBackupAccount,
+    TResult Function(FailedRestoreAccount value)? failedRestoreAccount,
+    TResult Function(NoBackupRestoreError value)? noBackupRestoreError,
+    TResult Function(FailedDeleteAllAccounts value)? failedDeleteAllAccounts,
+    TResult Function(NoAccountDeleteError value)? noAccountDeleteError,
+    required TResult orElse(),
+  }) {
+    if (failedRestoreAccount != null) {
+      return failedRestoreAccount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FailedRestoreAccount extends AppError {
+  const factory FailedRestoreAccount() = _$FailedRestoreAccount;
+  const FailedRestoreAccount._() : super._();
+}
+
+/// @nodoc
+abstract class $NoBackupRestoreErrorCopyWith<$Res> {
+  factory $NoBackupRestoreErrorCopyWith(NoBackupRestoreError value,
+          $Res Function(NoBackupRestoreError) then) =
+      _$NoBackupRestoreErrorCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$NoBackupRestoreErrorCopyWithImpl<$Res>
+    extends _$AppErrorCopyWithImpl<$Res>
+    implements $NoBackupRestoreErrorCopyWith<$Res> {
+  _$NoBackupRestoreErrorCopyWithImpl(
+      NoBackupRestoreError _value, $Res Function(NoBackupRestoreError) _then)
+      : super(_value, (v) => _then(v as NoBackupRestoreError));
+
+  @override
+  NoBackupRestoreError get _value => super._value as NoBackupRestoreError;
+}
+
+/// @nodoc
+
+class _$NoBackupRestoreError extends NoBackupRestoreError
+    with DiagnosticableTreeMixin {
+  const _$NoBackupRestoreError() : super._();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AppError.noBackupRestoreError()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'AppError.noBackupRestoreError'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is NoBackupRestoreError);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() failedFetchAccount,
+    required TResult Function() failedRegisterAccount,
+    required TResult Function() failedUpdateAccount,
+    required TResult Function() failedDeleteAccount,
+    required TResult Function() failedBackupAccount,
+    required TResult Function() failedRestoreAccount,
+    required TResult Function() noBackupRestoreError,
+    required TResult Function() failedDeleteAllAccounts,
+    required TResult Function() noAccountDeleteError,
+  }) {
+    return noBackupRestoreError();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? failedFetchAccount,
+    TResult Function()? failedRegisterAccount,
+    TResult Function()? failedUpdateAccount,
+    TResult Function()? failedDeleteAccount,
+    TResult Function()? failedBackupAccount,
+    TResult Function()? failedRestoreAccount,
+    TResult Function()? noBackupRestoreError,
+    TResult Function()? failedDeleteAllAccounts,
+    TResult Function()? noAccountDeleteError,
+  }) {
+    return noBackupRestoreError?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? failedFetchAccount,
+    TResult Function()? failedRegisterAccount,
+    TResult Function()? failedUpdateAccount,
+    TResult Function()? failedDeleteAccount,
+    TResult Function()? failedBackupAccount,
+    TResult Function()? failedRestoreAccount,
+    TResult Function()? noBackupRestoreError,
+    TResult Function()? failedDeleteAllAccounts,
+    TResult Function()? noAccountDeleteError,
+    required TResult orElse(),
+  }) {
+    if (noBackupRestoreError != null) {
+      return noBackupRestoreError();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FailedFetchAccount value) failedFetchAccount,
+    required TResult Function(FailedRegisterAccount value)
+        failedRegisterAccount,
+    required TResult Function(FailedUpdateAccount value) failedUpdateAccount,
+    required TResult Function(FailedDeleteAccount value) failedDeleteAccount,
+    required TResult Function(FailedBackupAccount value) failedBackupAccount,
+    required TResult Function(FailedRestoreAccount value) failedRestoreAccount,
+    required TResult Function(NoBackupRestoreError value) noBackupRestoreError,
+    required TResult Function(FailedDeleteAllAccounts value)
+        failedDeleteAllAccounts,
+    required TResult Function(NoAccountDeleteError value) noAccountDeleteError,
+  }) {
+    return noBackupRestoreError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(FailedFetchAccount value)? failedFetchAccount,
+    TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
+    TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
+    TResult Function(FailedDeleteAccount value)? failedDeleteAccount,
+    TResult Function(FailedBackupAccount value)? failedBackupAccount,
+    TResult Function(FailedRestoreAccount value)? failedRestoreAccount,
+    TResult Function(NoBackupRestoreError value)? noBackupRestoreError,
+    TResult Function(FailedDeleteAllAccounts value)? failedDeleteAllAccounts,
+    TResult Function(NoAccountDeleteError value)? noAccountDeleteError,
+  }) {
+    return noBackupRestoreError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FailedFetchAccount value)? failedFetchAccount,
+    TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
+    TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
+    TResult Function(FailedDeleteAccount value)? failedDeleteAccount,
+    TResult Function(FailedBackupAccount value)? failedBackupAccount,
+    TResult Function(FailedRestoreAccount value)? failedRestoreAccount,
+    TResult Function(NoBackupRestoreError value)? noBackupRestoreError,
+    TResult Function(FailedDeleteAllAccounts value)? failedDeleteAllAccounts,
+    TResult Function(NoAccountDeleteError value)? noAccountDeleteError,
+    required TResult orElse(),
+  }) {
+    if (noBackupRestoreError != null) {
+      return noBackupRestoreError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NoBackupRestoreError extends AppError {
+  const factory NoBackupRestoreError() = _$NoBackupRestoreError;
+  const NoBackupRestoreError._() : super._();
 }
 
 /// @nodoc
@@ -739,6 +1314,9 @@ class _$FailedDeleteAllAccounts extends FailedDeleteAllAccounts
     required TResult Function() failedRegisterAccount,
     required TResult Function() failedUpdateAccount,
     required TResult Function() failedDeleteAccount,
+    required TResult Function() failedBackupAccount,
+    required TResult Function() failedRestoreAccount,
+    required TResult Function() noBackupRestoreError,
     required TResult Function() failedDeleteAllAccounts,
     required TResult Function() noAccountDeleteError,
   }) {
@@ -752,6 +1330,9 @@ class _$FailedDeleteAllAccounts extends FailedDeleteAllAccounts
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
     TResult Function()? failedDeleteAccount,
+    TResult Function()? failedBackupAccount,
+    TResult Function()? failedRestoreAccount,
+    TResult Function()? noBackupRestoreError,
     TResult Function()? failedDeleteAllAccounts,
     TResult Function()? noAccountDeleteError,
   }) {
@@ -765,6 +1346,9 @@ class _$FailedDeleteAllAccounts extends FailedDeleteAllAccounts
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
     TResult Function()? failedDeleteAccount,
+    TResult Function()? failedBackupAccount,
+    TResult Function()? failedRestoreAccount,
+    TResult Function()? noBackupRestoreError,
     TResult Function()? failedDeleteAllAccounts,
     TResult Function()? noAccountDeleteError,
     required TResult orElse(),
@@ -783,6 +1367,9 @@ class _$FailedDeleteAllAccounts extends FailedDeleteAllAccounts
         failedRegisterAccount,
     required TResult Function(FailedUpdateAccount value) failedUpdateAccount,
     required TResult Function(FailedDeleteAccount value) failedDeleteAccount,
+    required TResult Function(FailedBackupAccount value) failedBackupAccount,
+    required TResult Function(FailedRestoreAccount value) failedRestoreAccount,
+    required TResult Function(NoBackupRestoreError value) noBackupRestoreError,
     required TResult Function(FailedDeleteAllAccounts value)
         failedDeleteAllAccounts,
     required TResult Function(NoAccountDeleteError value) noAccountDeleteError,
@@ -797,6 +1384,9 @@ class _$FailedDeleteAllAccounts extends FailedDeleteAllAccounts
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
     TResult Function(FailedDeleteAccount value)? failedDeleteAccount,
+    TResult Function(FailedBackupAccount value)? failedBackupAccount,
+    TResult Function(FailedRestoreAccount value)? failedRestoreAccount,
+    TResult Function(NoBackupRestoreError value)? noBackupRestoreError,
     TResult Function(FailedDeleteAllAccounts value)? failedDeleteAllAccounts,
     TResult Function(NoAccountDeleteError value)? noAccountDeleteError,
   }) {
@@ -810,6 +1400,9 @@ class _$FailedDeleteAllAccounts extends FailedDeleteAllAccounts
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
     TResult Function(FailedDeleteAccount value)? failedDeleteAccount,
+    TResult Function(FailedBackupAccount value)? failedBackupAccount,
+    TResult Function(FailedRestoreAccount value)? failedRestoreAccount,
+    TResult Function(NoBackupRestoreError value)? noBackupRestoreError,
     TResult Function(FailedDeleteAllAccounts value)? failedDeleteAllAccounts,
     TResult Function(NoAccountDeleteError value)? noAccountDeleteError,
     required TResult orElse(),
@@ -879,6 +1472,9 @@ class _$NoAccountDeleteError extends NoAccountDeleteError
     required TResult Function() failedRegisterAccount,
     required TResult Function() failedUpdateAccount,
     required TResult Function() failedDeleteAccount,
+    required TResult Function() failedBackupAccount,
+    required TResult Function() failedRestoreAccount,
+    required TResult Function() noBackupRestoreError,
     required TResult Function() failedDeleteAllAccounts,
     required TResult Function() noAccountDeleteError,
   }) {
@@ -892,6 +1488,9 @@ class _$NoAccountDeleteError extends NoAccountDeleteError
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
     TResult Function()? failedDeleteAccount,
+    TResult Function()? failedBackupAccount,
+    TResult Function()? failedRestoreAccount,
+    TResult Function()? noBackupRestoreError,
     TResult Function()? failedDeleteAllAccounts,
     TResult Function()? noAccountDeleteError,
   }) {
@@ -905,6 +1504,9 @@ class _$NoAccountDeleteError extends NoAccountDeleteError
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
     TResult Function()? failedDeleteAccount,
+    TResult Function()? failedBackupAccount,
+    TResult Function()? failedRestoreAccount,
+    TResult Function()? noBackupRestoreError,
     TResult Function()? failedDeleteAllAccounts,
     TResult Function()? noAccountDeleteError,
     required TResult orElse(),
@@ -923,6 +1525,9 @@ class _$NoAccountDeleteError extends NoAccountDeleteError
         failedRegisterAccount,
     required TResult Function(FailedUpdateAccount value) failedUpdateAccount,
     required TResult Function(FailedDeleteAccount value) failedDeleteAccount,
+    required TResult Function(FailedBackupAccount value) failedBackupAccount,
+    required TResult Function(FailedRestoreAccount value) failedRestoreAccount,
+    required TResult Function(NoBackupRestoreError value) noBackupRestoreError,
     required TResult Function(FailedDeleteAllAccounts value)
         failedDeleteAllAccounts,
     required TResult Function(NoAccountDeleteError value) noAccountDeleteError,
@@ -937,6 +1542,9 @@ class _$NoAccountDeleteError extends NoAccountDeleteError
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
     TResult Function(FailedDeleteAccount value)? failedDeleteAccount,
+    TResult Function(FailedBackupAccount value)? failedBackupAccount,
+    TResult Function(FailedRestoreAccount value)? failedRestoreAccount,
+    TResult Function(NoBackupRestoreError value)? noBackupRestoreError,
     TResult Function(FailedDeleteAllAccounts value)? failedDeleteAllAccounts,
     TResult Function(NoAccountDeleteError value)? noAccountDeleteError,
   }) {
@@ -950,6 +1558,9 @@ class _$NoAccountDeleteError extends NoAccountDeleteError
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
     TResult Function(FailedDeleteAccount value)? failedDeleteAccount,
+    TResult Function(FailedBackupAccount value)? failedBackupAccount,
+    TResult Function(FailedRestoreAccount value)? failedRestoreAccount,
+    TResult Function(NoBackupRestoreError value)? noBackupRestoreError,
     TResult Function(FailedDeleteAllAccounts value)? failedDeleteAllAccounts,
     TResult Function(NoAccountDeleteError value)? noAccountDeleteError,
     required TResult orElse(),
