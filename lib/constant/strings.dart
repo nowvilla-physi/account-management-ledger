@@ -1,5 +1,6 @@
 class Strings {
   // Title.
+  static const appTitle = 'アカウント管理台帳';
   static const menuTitle = 'メニュー';
 
   // Label.
@@ -22,6 +23,7 @@ class Strings {
   static const cancelButton = 'キャンセル';
 
   // Message.
+  static const authMessage = '4桁のパスワードを入力してください';
   static const noDataMessage = 'データが登録されていません。';
   static const copiedMessage = 'クリップボードにコピーしました。';
   static const loadingMessage = 'Loading...';
