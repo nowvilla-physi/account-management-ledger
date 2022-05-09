@@ -1,6 +1,7 @@
 class Dimens {
   // padding.
   static const allHorizontalPadding = 16.0;
+  static const allVerticalPadding = 16.0;
   static const formFieldHorizontalPadding = 16.0;
   static const formFieldVerticalPadding = 8.0;
   static const bottomSheetVerticalPadding = 12.0;
@@ -11,6 +12,8 @@ class Dimens {
   static const menuButtonMarginLeft = 8.0;
   static const menuButtonMarginRight = 16.0;
   static const backButtonHorizontalMargin = 10.0;
+  static const authButtonHorizontalMargin = 24.0;
+  static const authTextHorizontalMargin = 16.0;
 
   // radius.
   static const formFieldRadius = 8.0;
