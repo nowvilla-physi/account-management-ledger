@@ -6,6 +6,10 @@ part 'error.freezed.dart';
 
 @freezed
 abstract class AppError with _$AppError implements Exception {
+  const factory AppError.failedFetchPassword() = FailedFetchPassword;
+
+  const factory AppError.failedRegisterPassword() = FailedRegisterPassword;
+
   const factory AppError.failedFetchAccount() = FailedFetchAccount;
 
   const factory AppError.failedRegisterAccount() = FailedRegisterAccount;
@@ -28,6 +32,8 @@ abstract class AppError with _$AppError implements Exception {
 
   String get message {
     return when(
+      failedFetchPassword: () => Strings.failedFetchPasswordMessage,
+      failedRegisterPassword: () => Strings.failedRegisterPasswordMessage,
       failedFetchAccount: () => Strings.failedFetchAccountMessage,
       failedRegisterAccount: () => Strings.failedRegisterAccountMessage,
       failedUpdateAccount: () => Strings.failedUpdateAccountMessage,
