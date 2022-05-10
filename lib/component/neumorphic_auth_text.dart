@@ -12,6 +12,8 @@ class NeumorphicAuthText extends StatelessWidget {
     this.isRegister,
   }) : super(key: key);
 
+  static const String maskText = '＊';
+
   @override
   Widget build(BuildContext context) {
     return Neumorphic(
@@ -23,7 +25,7 @@ class NeumorphicAuthText extends StatelessWidget {
       child: ConstrainedBox(
         constraints: BoxConstraints(minWidth: 16.w),
         child: Text(
-          isRegister == true ? (text ?? '') : '＊',
+          isRegister == true ? (text ?? '') : maskText,
           textAlign: TextAlign.center,
           style: TextStyle(
             color: text != null ? AppColors.black : Colors.transparent,

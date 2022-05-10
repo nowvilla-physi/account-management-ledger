@@ -3,7 +3,6 @@ import 'package:account_management_ledger/importer.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:logger/logger.dart';
 
 class PasswordRegisterPage extends ConsumerStatefulWidget {
   const PasswordRegisterPage({Key? key}) : super(key: key);
@@ -15,11 +14,10 @@ class PasswordRegisterPage extends ConsumerStatefulWidget {
 
 class _PasswordRegisterPageState extends ConsumerState<PasswordRegisterPage> {
   static const _prefsPasswordKey = 'passwordKey';
+  static const _validPasswordLength = 4;
 
   /// パスワード
   String _password = '';
-
-  late final _router = AppRouter(context);
 
   late final _appSnackbar = AppSnackbar(context);
 
@@ -31,7 +29,7 @@ class _PasswordRegisterPageState extends ConsumerState<PasswordRegisterPage> {
 
   /// パスワードをステートに保持する
   void _inputPassword(String text) {
-    if (_password.length < 4) {
+    if (_password.length < _validPasswordLength) {
       setState(() {
         _password += text;
       });
@@ -51,12 +49,12 @@ class _PasswordRegisterPageState extends ConsumerState<PasswordRegisterPage> {
 
   /// パスワードを登録する
   void _registerPassword() {
-    if (_password.length == 4) {
+    if (_password.length == _validPasswordLength) {
       ref
           .watch(authViewModelProvider.notifier)
           .savePassword(_prefsPasswordKey, _password);
     } else {
-      _appSnackbar.showErrorSnackbar("パスワードは数字4桁で入力してください。");
+      _appSnackbar.showErrorSnackbar(Strings.invalidPasswordRegisterMessage);
     }
   }
 
@@ -89,43 +87,43 @@ class _PasswordRegisterPageState extends ConsumerState<PasswordRegisterPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    NeumorphicAuthButton(number: "1", action: _inputPassword),
+                    NeumorphicAuthButton(number: '1', action: _inputPassword),
                     SizedBox(width: Dimens.authButtonHorizontalMargin.w),
-                    NeumorphicAuthButton(number: "2", action: _inputPassword),
+                    NeumorphicAuthButton(number: '2', action: _inputPassword),
                     SizedBox(width: Dimens.authButtonHorizontalMargin.w),
-                    NeumorphicAuthButton(number: "3", action: _inputPassword),
+                    NeumorphicAuthButton(number: '3', action: _inputPassword),
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    NeumorphicAuthButton(number: "4", action: _inputPassword),
+                    NeumorphicAuthButton(number: '4', action: _inputPassword),
                     SizedBox(width: Dimens.authButtonHorizontalMargin.w),
-                    NeumorphicAuthButton(number: "5", action: _inputPassword),
+                    NeumorphicAuthButton(number: '5', action: _inputPassword),
                     SizedBox(width: Dimens.authButtonHorizontalMargin.w),
-                    NeumorphicAuthButton(number: "6", action: _inputPassword),
+                    NeumorphicAuthButton(number: '6', action: _inputPassword),
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    NeumorphicAuthButton(number: "7", action: _inputPassword),
+                    NeumorphicAuthButton(number: '7', action: _inputPassword),
                     SizedBox(width: Dimens.authButtonHorizontalMargin.w),
-                    NeumorphicAuthButton(number: "8", action: _inputPassword),
+                    NeumorphicAuthButton(number: '8', action: _inputPassword),
                     SizedBox(width: Dimens.authButtonHorizontalMargin.w),
-                    NeumorphicAuthButton(number: "9", action: _inputPassword),
+                    NeumorphicAuthButton(number: '9', action: _inputPassword),
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     NeumorphicAuthButton(
-                        number: "0", action: _deletePassword, isVisible: false),
+                        number: '0', action: _deletePassword, isVisible: false),
                     SizedBox(width: Dimens.authButtonHorizontalMargin.w),
-                    NeumorphicAuthButton(number: "0", action: _inputPassword),
+                    NeumorphicAuthButton(number: '0', action: _inputPassword),
                     SizedBox(width: Dimens.authButtonHorizontalMargin.w),
                     NeumorphicAuthButton(
-                      number: "×",
+                      number: '×',
                       action: _deletePassword,
                       color: AppColors.red,
                     ),
@@ -140,7 +138,7 @@ class _PasswordRegisterPageState extends ConsumerState<PasswordRegisterPage> {
                     ),
                     padding: const EdgeInsets.all(12.0),
                     child: Text(
-                      "登録する",
+                      Strings.registerButton,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: AppColors.mainColor,

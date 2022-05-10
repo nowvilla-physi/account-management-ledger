@@ -16,6 +16,7 @@ class Strings {
 
   // Button.
   static const addButton = '追加する';
+  static const registerButton = '登録する';
   static const updateButton = '更新する';
   static const deleteButton = '削除する';
   static const closeButton = '閉じる';
@@ -41,6 +42,8 @@ class Strings {
   static const menuLoadingMessage = '処理中...';
 
   // Error message.
+  static const invalidPasswordRegisterMessage = 'パスワードは数字4桁で入力してください。';
+  static const invalidPasswordMessage = 'パスワードの入力に誤りがあります。';
   static const failedFetchPasswordMessage = 'パスワードの取得に失敗しました。';
   static const failedRegisterPasswordMessage = 'パスワードの保存に失敗しました。';
   static const failedFetchAccountMessage = 'アカウントの一覧の取得に失敗しました。';

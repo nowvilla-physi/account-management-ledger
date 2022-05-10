@@ -25,13 +25,25 @@ class NeumorphicAuthTexts extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        NeumorphicAuthText(text: _slicePassword(password, 1), isRegister: true),
+        NeumorphicAuthText(
+          text: _slicePassword(password, 1),
+          isRegister: isRegister,
+        ),
         SizedBox(width: Dimens.authTextHorizontalMargin.w),
-        NeumorphicAuthText(text: _slicePassword(password, 2), isRegister: true),
+        NeumorphicAuthText(
+          text: _slicePassword(password, 2),
+          isRegister: isRegister,
+        ),
         SizedBox(width: Dimens.authTextHorizontalMargin.w),
-        NeumorphicAuthText(text: _slicePassword(password, 3), isRegister: true),
+        NeumorphicAuthText(
+          text: _slicePassword(password, 3),
+          isRegister: isRegister,
+        ),
         SizedBox(width: Dimens.authTextHorizontalMargin.w),
-        NeumorphicAuthText(text: _slicePassword(password, 4), isRegister: true),
+        NeumorphicAuthText(
+          text: _slicePassword(password, 4),
+          isRegister: isRegister,
+        ),
       ],
     );
   }
