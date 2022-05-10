@@ -4,10 +4,12 @@ import 'package:account_management_ledger/importer.dart';
 
 class NeumorphicAuthTexts extends StatelessWidget {
   final String password;
+  final bool? isRegister;
 
   const NeumorphicAuthTexts({
     Key? key,
     required this.password,
+    this.isRegister,
   }) : super(key: key);
 
   String? _slicePassword(String password, int length) {
@@ -23,13 +25,13 @@ class NeumorphicAuthTexts extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        NeumorphicAuthText(text: _slicePassword(password, 1)),
+        NeumorphicAuthText(text: _slicePassword(password, 1), isRegister: true),
         SizedBox(width: Dimens.authTextHorizontalMargin.w),
-        NeumorphicAuthText(text: _slicePassword(password, 2)),
+        NeumorphicAuthText(text: _slicePassword(password, 2), isRegister: true),
         SizedBox(width: Dimens.authTextHorizontalMargin.w),
-        NeumorphicAuthText(text: _slicePassword(password, 3)),
+        NeumorphicAuthText(text: _slicePassword(password, 3), isRegister: true),
         SizedBox(width: Dimens.authTextHorizontalMargin.w),
-        NeumorphicAuthText(text: _slicePassword(password, 4)),
+        NeumorphicAuthText(text: _slicePassword(password, 4), isRegister: true),
       ],
     );
   }

@@ -4,10 +4,12 @@ import 'package:account_management_ledger/importer.dart';
 
 class NeumorphicAuthText extends StatelessWidget {
   final String? text;
+  final bool? isRegister;
 
   const NeumorphicAuthText({
     Key? key,
     required this.text,
+    this.isRegister,
   }) : super(key: key);
 
   @override
@@ -18,12 +20,15 @@ class NeumorphicAuthText extends StatelessWidget {
         depth: Dimens.embossDepth,
         color: AppColors.baseColor,
       ),
-      child: Text(
-        '＊',
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          color: text != null ? AppColors.black : Colors.transparent,
-          fontSize: 16.sp,
+      child: ConstrainedBox(
+        constraints: BoxConstraints(minWidth: 16.w),
+        child: Text(
+          isRegister == true ? (text ?? '') : '＊',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: text != null ? AppColors.black : Colors.transparent,
+            fontSize: 16.sp,
+          ),
         ),
       ),
     );

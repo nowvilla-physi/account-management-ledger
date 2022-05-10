@@ -13,6 +13,7 @@ class Dimens {
   static const menuButtonMarginRight = 16.0;
   static const backButtonHorizontalMargin = 10.0;
   static const authButtonHorizontalMargin = 24.0;
+  static const registerButtonMarginTop = 32.0;
   static const authTextHorizontalMargin = 16.0;
 
   // radius.

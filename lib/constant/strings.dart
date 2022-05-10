@@ -23,6 +23,7 @@ class Strings {
   static const cancelButton = 'キャンセル';
 
   // Message.
+  static const passwordRegisterMessage = 'パスワードを4桁で登録してください。';
   static const authMessage = '4桁のパスワードを入力してください';
   static const noDataMessage = 'データが登録されていません。';
   static const copiedMessage = 'クリップボードにコピーしました。';
@@ -40,6 +41,8 @@ class Strings {
   static const menuLoadingMessage = '処理中...';
 
   // Error message.
+  static const failedFetchPasswordMessage = 'パスワードの取得に失敗しました。';
+  static const failedRegisterPasswordMessage = 'パスワードの保存に失敗しました。';
   static const failedFetchAccountMessage = 'アカウントの一覧の取得に失敗しました。';
   static const failedRegisterAccountMessage = 'アカウントの追加に失敗しました。';
   static const failedUpdateAccountMessage = 'アカウントの更新に失敗しました。';

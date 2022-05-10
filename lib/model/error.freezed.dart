@@ -18,6 +18,14 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AppErrorTearOff {
   const _$AppErrorTearOff();
 
+  FailedFetchPassword failedFetchPassword() {
+    return const FailedFetchPassword();
+  }
+
+  FailedRegisterPassword failedRegisterPassword() {
+    return const FailedRegisterPassword();
+  }
+
   FailedFetchAccount failedFetchAccount() {
     return const FailedFetchAccount();
   }
@@ -62,6 +70,8 @@ const $AppError = _$AppErrorTearOff();
 mixin _$AppError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() failedFetchPassword,
+    required TResult Function() failedRegisterPassword,
     required TResult Function() failedFetchAccount,
     required TResult Function() failedRegisterAccount,
     required TResult Function() failedUpdateAccount,
@@ -75,6 +85,8 @@ mixin _$AppError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? failedFetchPassword,
+    TResult Function()? failedRegisterPassword,
     TResult Function()? failedFetchAccount,
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
@@ -88,6 +100,8 @@ mixin _$AppError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? failedFetchPassword,
+    TResult Function()? failedRegisterPassword,
     TResult Function()? failedFetchAccount,
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
@@ -102,6 +116,9 @@ mixin _$AppError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(FailedFetchPassword value) failedFetchPassword,
+    required TResult Function(FailedRegisterPassword value)
+        failedRegisterPassword,
     required TResult Function(FailedFetchAccount value) failedFetchAccount,
     required TResult Function(FailedRegisterAccount value)
         failedRegisterAccount,
@@ -117,6 +134,8 @@ mixin _$AppError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(FailedFetchPassword value)? failedFetchPassword,
+    TResult Function(FailedRegisterPassword value)? failedRegisterPassword,
     TResult Function(FailedFetchAccount value)? failedFetchAccount,
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
@@ -130,6 +149,8 @@ mixin _$AppError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(FailedFetchPassword value)? failedFetchPassword,
+    TResult Function(FailedRegisterPassword value)? failedRegisterPassword,
     TResult Function(FailedFetchAccount value)? failedFetchAccount,
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
@@ -157,6 +178,347 @@ class _$AppErrorCopyWithImpl<$Res> implements $AppErrorCopyWith<$Res> {
   final AppError _value;
   // ignore: unused_field
   final $Res Function(AppError) _then;
+}
+
+/// @nodoc
+abstract class $FailedFetchPasswordCopyWith<$Res> {
+  factory $FailedFetchPasswordCopyWith(
+          FailedFetchPassword value, $Res Function(FailedFetchPassword) then) =
+      _$FailedFetchPasswordCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$FailedFetchPasswordCopyWithImpl<$Res>
+    extends _$AppErrorCopyWithImpl<$Res>
+    implements $FailedFetchPasswordCopyWith<$Res> {
+  _$FailedFetchPasswordCopyWithImpl(
+      FailedFetchPassword _value, $Res Function(FailedFetchPassword) _then)
+      : super(_value, (v) => _then(v as FailedFetchPassword));
+
+  @override
+  FailedFetchPassword get _value => super._value as FailedFetchPassword;
+}
+
+/// @nodoc
+
+class _$FailedFetchPassword extends FailedFetchPassword
+    with DiagnosticableTreeMixin {
+  const _$FailedFetchPassword() : super._();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AppError.failedFetchPassword()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'AppError.failedFetchPassword'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is FailedFetchPassword);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() failedFetchPassword,
+    required TResult Function() failedRegisterPassword,
+    required TResult Function() failedFetchAccount,
+    required TResult Function() failedRegisterAccount,
+    required TResult Function() failedUpdateAccount,
+    required TResult Function() failedDeleteAccount,
+    required TResult Function() failedBackupAccount,
+    required TResult Function() failedRestoreAccount,
+    required TResult Function() noBackupRestoreError,
+    required TResult Function() failedDeleteAllAccounts,
+    required TResult Function() noAccountDeleteError,
+  }) {
+    return failedFetchPassword();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? failedFetchPassword,
+    TResult Function()? failedRegisterPassword,
+    TResult Function()? failedFetchAccount,
+    TResult Function()? failedRegisterAccount,
+    TResult Function()? failedUpdateAccount,
+    TResult Function()? failedDeleteAccount,
+    TResult Function()? failedBackupAccount,
+    TResult Function()? failedRestoreAccount,
+    TResult Function()? noBackupRestoreError,
+    TResult Function()? failedDeleteAllAccounts,
+    TResult Function()? noAccountDeleteError,
+  }) {
+    return failedFetchPassword?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? failedFetchPassword,
+    TResult Function()? failedRegisterPassword,
+    TResult Function()? failedFetchAccount,
+    TResult Function()? failedRegisterAccount,
+    TResult Function()? failedUpdateAccount,
+    TResult Function()? failedDeleteAccount,
+    TResult Function()? failedBackupAccount,
+    TResult Function()? failedRestoreAccount,
+    TResult Function()? noBackupRestoreError,
+    TResult Function()? failedDeleteAllAccounts,
+    TResult Function()? noAccountDeleteError,
+    required TResult orElse(),
+  }) {
+    if (failedFetchPassword != null) {
+      return failedFetchPassword();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FailedFetchPassword value) failedFetchPassword,
+    required TResult Function(FailedRegisterPassword value)
+        failedRegisterPassword,
+    required TResult Function(FailedFetchAccount value) failedFetchAccount,
+    required TResult Function(FailedRegisterAccount value)
+        failedRegisterAccount,
+    required TResult Function(FailedUpdateAccount value) failedUpdateAccount,
+    required TResult Function(FailedDeleteAccount value) failedDeleteAccount,
+    required TResult Function(FailedBackupAccount value) failedBackupAccount,
+    required TResult Function(FailedRestoreAccount value) failedRestoreAccount,
+    required TResult Function(NoBackupRestoreError value) noBackupRestoreError,
+    required TResult Function(FailedDeleteAllAccounts value)
+        failedDeleteAllAccounts,
+    required TResult Function(NoAccountDeleteError value) noAccountDeleteError,
+  }) {
+    return failedFetchPassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(FailedFetchPassword value)? failedFetchPassword,
+    TResult Function(FailedRegisterPassword value)? failedRegisterPassword,
+    TResult Function(FailedFetchAccount value)? failedFetchAccount,
+    TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
+    TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
+    TResult Function(FailedDeleteAccount value)? failedDeleteAccount,
+    TResult Function(FailedBackupAccount value)? failedBackupAccount,
+    TResult Function(FailedRestoreAccount value)? failedRestoreAccount,
+    TResult Function(NoBackupRestoreError value)? noBackupRestoreError,
+    TResult Function(FailedDeleteAllAccounts value)? failedDeleteAllAccounts,
+    TResult Function(NoAccountDeleteError value)? noAccountDeleteError,
+  }) {
+    return failedFetchPassword?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FailedFetchPassword value)? failedFetchPassword,
+    TResult Function(FailedRegisterPassword value)? failedRegisterPassword,
+    TResult Function(FailedFetchAccount value)? failedFetchAccount,
+    TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
+    TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
+    TResult Function(FailedDeleteAccount value)? failedDeleteAccount,
+    TResult Function(FailedBackupAccount value)? failedBackupAccount,
+    TResult Function(FailedRestoreAccount value)? failedRestoreAccount,
+    TResult Function(NoBackupRestoreError value)? noBackupRestoreError,
+    TResult Function(FailedDeleteAllAccounts value)? failedDeleteAllAccounts,
+    TResult Function(NoAccountDeleteError value)? noAccountDeleteError,
+    required TResult orElse(),
+  }) {
+    if (failedFetchPassword != null) {
+      return failedFetchPassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FailedFetchPassword extends AppError {
+  const factory FailedFetchPassword() = _$FailedFetchPassword;
+  const FailedFetchPassword._() : super._();
+}
+
+/// @nodoc
+abstract class $FailedRegisterPasswordCopyWith<$Res> {
+  factory $FailedRegisterPasswordCopyWith(FailedRegisterPassword value,
+          $Res Function(FailedRegisterPassword) then) =
+      _$FailedRegisterPasswordCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$FailedRegisterPasswordCopyWithImpl<$Res>
+    extends _$AppErrorCopyWithImpl<$Res>
+    implements $FailedRegisterPasswordCopyWith<$Res> {
+  _$FailedRegisterPasswordCopyWithImpl(FailedRegisterPassword _value,
+      $Res Function(FailedRegisterPassword) _then)
+      : super(_value, (v) => _then(v as FailedRegisterPassword));
+
+  @override
+  FailedRegisterPassword get _value => super._value as FailedRegisterPassword;
+}
+
+/// @nodoc
+
+class _$FailedRegisterPassword extends FailedRegisterPassword
+    with DiagnosticableTreeMixin {
+  const _$FailedRegisterPassword() : super._();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AppError.failedRegisterPassword()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'AppError.failedRegisterPassword'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is FailedRegisterPassword);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() failedFetchPassword,
+    required TResult Function() failedRegisterPassword,
+    required TResult Function() failedFetchAccount,
+    required TResult Function() failedRegisterAccount,
+    required TResult Function() failedUpdateAccount,
+    required TResult Function() failedDeleteAccount,
+    required TResult Function() failedBackupAccount,
+    required TResult Function() failedRestoreAccount,
+    required TResult Function() noBackupRestoreError,
+    required TResult Function() failedDeleteAllAccounts,
+    required TResult Function() noAccountDeleteError,
+  }) {
+    return failedRegisterPassword();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? failedFetchPassword,
+    TResult Function()? failedRegisterPassword,
+    TResult Function()? failedFetchAccount,
+    TResult Function()? failedRegisterAccount,
+    TResult Function()? failedUpdateAccount,
+    TResult Function()? failedDeleteAccount,
+    TResult Function()? failedBackupAccount,
+    TResult Function()? failedRestoreAccount,
+    TResult Function()? noBackupRestoreError,
+    TResult Function()? failedDeleteAllAccounts,
+    TResult Function()? noAccountDeleteError,
+  }) {
+    return failedRegisterPassword?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? failedFetchPassword,
+    TResult Function()? failedRegisterPassword,
+    TResult Function()? failedFetchAccount,
+    TResult Function()? failedRegisterAccount,
+    TResult Function()? failedUpdateAccount,
+    TResult Function()? failedDeleteAccount,
+    TResult Function()? failedBackupAccount,
+    TResult Function()? failedRestoreAccount,
+    TResult Function()? noBackupRestoreError,
+    TResult Function()? failedDeleteAllAccounts,
+    TResult Function()? noAccountDeleteError,
+    required TResult orElse(),
+  }) {
+    if (failedRegisterPassword != null) {
+      return failedRegisterPassword();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FailedFetchPassword value) failedFetchPassword,
+    required TResult Function(FailedRegisterPassword value)
+        failedRegisterPassword,
+    required TResult Function(FailedFetchAccount value) failedFetchAccount,
+    required TResult Function(FailedRegisterAccount value)
+        failedRegisterAccount,
+    required TResult Function(FailedUpdateAccount value) failedUpdateAccount,
+    required TResult Function(FailedDeleteAccount value) failedDeleteAccount,
+    required TResult Function(FailedBackupAccount value) failedBackupAccount,
+    required TResult Function(FailedRestoreAccount value) failedRestoreAccount,
+    required TResult Function(NoBackupRestoreError value) noBackupRestoreError,
+    required TResult Function(FailedDeleteAllAccounts value)
+        failedDeleteAllAccounts,
+    required TResult Function(NoAccountDeleteError value) noAccountDeleteError,
+  }) {
+    return failedRegisterPassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(FailedFetchPassword value)? failedFetchPassword,
+    TResult Function(FailedRegisterPassword value)? failedRegisterPassword,
+    TResult Function(FailedFetchAccount value)? failedFetchAccount,
+    TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
+    TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
+    TResult Function(FailedDeleteAccount value)? failedDeleteAccount,
+    TResult Function(FailedBackupAccount value)? failedBackupAccount,
+    TResult Function(FailedRestoreAccount value)? failedRestoreAccount,
+    TResult Function(NoBackupRestoreError value)? noBackupRestoreError,
+    TResult Function(FailedDeleteAllAccounts value)? failedDeleteAllAccounts,
+    TResult Function(NoAccountDeleteError value)? noAccountDeleteError,
+  }) {
+    return failedRegisterPassword?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FailedFetchPassword value)? failedFetchPassword,
+    TResult Function(FailedRegisterPassword value)? failedRegisterPassword,
+    TResult Function(FailedFetchAccount value)? failedFetchAccount,
+    TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
+    TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
+    TResult Function(FailedDeleteAccount value)? failedDeleteAccount,
+    TResult Function(FailedBackupAccount value)? failedBackupAccount,
+    TResult Function(FailedRestoreAccount value)? failedRestoreAccount,
+    TResult Function(NoBackupRestoreError value)? noBackupRestoreError,
+    TResult Function(FailedDeleteAllAccounts value)? failedDeleteAllAccounts,
+    TResult Function(NoAccountDeleteError value)? noAccountDeleteError,
+    required TResult orElse(),
+  }) {
+    if (failedRegisterPassword != null) {
+      return failedRegisterPassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FailedRegisterPassword extends AppError {
+  const factory FailedRegisterPassword() = _$FailedRegisterPassword;
+  const FailedRegisterPassword._() : super._();
 }
 
 /// @nodoc
@@ -207,6 +569,8 @@ class _$FailedFetchAccount extends FailedFetchAccount
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() failedFetchPassword,
+    required TResult Function() failedRegisterPassword,
     required TResult Function() failedFetchAccount,
     required TResult Function() failedRegisterAccount,
     required TResult Function() failedUpdateAccount,
@@ -223,6 +587,8 @@ class _$FailedFetchAccount extends FailedFetchAccount
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? failedFetchPassword,
+    TResult Function()? failedRegisterPassword,
     TResult Function()? failedFetchAccount,
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
@@ -239,6 +605,8 @@ class _$FailedFetchAccount extends FailedFetchAccount
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? failedFetchPassword,
+    TResult Function()? failedRegisterPassword,
     TResult Function()? failedFetchAccount,
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
@@ -259,6 +627,9 @@ class _$FailedFetchAccount extends FailedFetchAccount
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(FailedFetchPassword value) failedFetchPassword,
+    required TResult Function(FailedRegisterPassword value)
+        failedRegisterPassword,
     required TResult Function(FailedFetchAccount value) failedFetchAccount,
     required TResult Function(FailedRegisterAccount value)
         failedRegisterAccount,
@@ -277,6 +648,8 @@ class _$FailedFetchAccount extends FailedFetchAccount
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(FailedFetchPassword value)? failedFetchPassword,
+    TResult Function(FailedRegisterPassword value)? failedRegisterPassword,
     TResult Function(FailedFetchAccount value)? failedFetchAccount,
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
@@ -293,6 +666,8 @@ class _$FailedFetchAccount extends FailedFetchAccount
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(FailedFetchPassword value)? failedFetchPassword,
+    TResult Function(FailedRegisterPassword value)? failedRegisterPassword,
     TResult Function(FailedFetchAccount value)? failedFetchAccount,
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
@@ -365,6 +740,8 @@ class _$FailedRegisterAccount extends FailedRegisterAccount
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() failedFetchPassword,
+    required TResult Function() failedRegisterPassword,
     required TResult Function() failedFetchAccount,
     required TResult Function() failedRegisterAccount,
     required TResult Function() failedUpdateAccount,
@@ -381,6 +758,8 @@ class _$FailedRegisterAccount extends FailedRegisterAccount
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? failedFetchPassword,
+    TResult Function()? failedRegisterPassword,
     TResult Function()? failedFetchAccount,
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
@@ -397,6 +776,8 @@ class _$FailedRegisterAccount extends FailedRegisterAccount
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? failedFetchPassword,
+    TResult Function()? failedRegisterPassword,
     TResult Function()? failedFetchAccount,
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
@@ -417,6 +798,9 @@ class _$FailedRegisterAccount extends FailedRegisterAccount
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(FailedFetchPassword value) failedFetchPassword,
+    required TResult Function(FailedRegisterPassword value)
+        failedRegisterPassword,
     required TResult Function(FailedFetchAccount value) failedFetchAccount,
     required TResult Function(FailedRegisterAccount value)
         failedRegisterAccount,
@@ -435,6 +819,8 @@ class _$FailedRegisterAccount extends FailedRegisterAccount
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(FailedFetchPassword value)? failedFetchPassword,
+    TResult Function(FailedRegisterPassword value)? failedRegisterPassword,
     TResult Function(FailedFetchAccount value)? failedFetchAccount,
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
@@ -451,6 +837,8 @@ class _$FailedRegisterAccount extends FailedRegisterAccount
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(FailedFetchPassword value)? failedFetchPassword,
+    TResult Function(FailedRegisterPassword value)? failedRegisterPassword,
     TResult Function(FailedFetchAccount value)? failedFetchAccount,
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
@@ -522,6 +910,8 @@ class _$FailedUpdateAccount extends FailedUpdateAccount
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() failedFetchPassword,
+    required TResult Function() failedRegisterPassword,
     required TResult Function() failedFetchAccount,
     required TResult Function() failedRegisterAccount,
     required TResult Function() failedUpdateAccount,
@@ -538,6 +928,8 @@ class _$FailedUpdateAccount extends FailedUpdateAccount
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? failedFetchPassword,
+    TResult Function()? failedRegisterPassword,
     TResult Function()? failedFetchAccount,
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
@@ -554,6 +946,8 @@ class _$FailedUpdateAccount extends FailedUpdateAccount
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? failedFetchPassword,
+    TResult Function()? failedRegisterPassword,
     TResult Function()? failedFetchAccount,
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
@@ -574,6 +968,9 @@ class _$FailedUpdateAccount extends FailedUpdateAccount
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(FailedFetchPassword value) failedFetchPassword,
+    required TResult Function(FailedRegisterPassword value)
+        failedRegisterPassword,
     required TResult Function(FailedFetchAccount value) failedFetchAccount,
     required TResult Function(FailedRegisterAccount value)
         failedRegisterAccount,
@@ -592,6 +989,8 @@ class _$FailedUpdateAccount extends FailedUpdateAccount
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(FailedFetchPassword value)? failedFetchPassword,
+    TResult Function(FailedRegisterPassword value)? failedRegisterPassword,
     TResult Function(FailedFetchAccount value)? failedFetchAccount,
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
@@ -608,6 +1007,8 @@ class _$FailedUpdateAccount extends FailedUpdateAccount
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(FailedFetchPassword value)? failedFetchPassword,
+    TResult Function(FailedRegisterPassword value)? failedRegisterPassword,
     TResult Function(FailedFetchAccount value)? failedFetchAccount,
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
@@ -679,6 +1080,8 @@ class _$FailedDeleteAccount extends FailedDeleteAccount
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() failedFetchPassword,
+    required TResult Function() failedRegisterPassword,
     required TResult Function() failedFetchAccount,
     required TResult Function() failedRegisterAccount,
     required TResult Function() failedUpdateAccount,
@@ -695,6 +1098,8 @@ class _$FailedDeleteAccount extends FailedDeleteAccount
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? failedFetchPassword,
+    TResult Function()? failedRegisterPassword,
     TResult Function()? failedFetchAccount,
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
@@ -711,6 +1116,8 @@ class _$FailedDeleteAccount extends FailedDeleteAccount
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? failedFetchPassword,
+    TResult Function()? failedRegisterPassword,
     TResult Function()? failedFetchAccount,
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
@@ -731,6 +1138,9 @@ class _$FailedDeleteAccount extends FailedDeleteAccount
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(FailedFetchPassword value) failedFetchPassword,
+    required TResult Function(FailedRegisterPassword value)
+        failedRegisterPassword,
     required TResult Function(FailedFetchAccount value) failedFetchAccount,
     required TResult Function(FailedRegisterAccount value)
         failedRegisterAccount,
@@ -749,6 +1159,8 @@ class _$FailedDeleteAccount extends FailedDeleteAccount
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(FailedFetchPassword value)? failedFetchPassword,
+    TResult Function(FailedRegisterPassword value)? failedRegisterPassword,
     TResult Function(FailedFetchAccount value)? failedFetchAccount,
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
@@ -765,6 +1177,8 @@ class _$FailedDeleteAccount extends FailedDeleteAccount
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(FailedFetchPassword value)? failedFetchPassword,
+    TResult Function(FailedRegisterPassword value)? failedRegisterPassword,
     TResult Function(FailedFetchAccount value)? failedFetchAccount,
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
@@ -836,6 +1250,8 @@ class _$FailedBackupAccount extends FailedBackupAccount
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() failedFetchPassword,
+    required TResult Function() failedRegisterPassword,
     required TResult Function() failedFetchAccount,
     required TResult Function() failedRegisterAccount,
     required TResult Function() failedUpdateAccount,
@@ -852,6 +1268,8 @@ class _$FailedBackupAccount extends FailedBackupAccount
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? failedFetchPassword,
+    TResult Function()? failedRegisterPassword,
     TResult Function()? failedFetchAccount,
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
@@ -868,6 +1286,8 @@ class _$FailedBackupAccount extends FailedBackupAccount
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? failedFetchPassword,
+    TResult Function()? failedRegisterPassword,
     TResult Function()? failedFetchAccount,
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
@@ -888,6 +1308,9 @@ class _$FailedBackupAccount extends FailedBackupAccount
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(FailedFetchPassword value) failedFetchPassword,
+    required TResult Function(FailedRegisterPassword value)
+        failedRegisterPassword,
     required TResult Function(FailedFetchAccount value) failedFetchAccount,
     required TResult Function(FailedRegisterAccount value)
         failedRegisterAccount,
@@ -906,6 +1329,8 @@ class _$FailedBackupAccount extends FailedBackupAccount
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(FailedFetchPassword value)? failedFetchPassword,
+    TResult Function(FailedRegisterPassword value)? failedRegisterPassword,
     TResult Function(FailedFetchAccount value)? failedFetchAccount,
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
@@ -922,6 +1347,8 @@ class _$FailedBackupAccount extends FailedBackupAccount
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(FailedFetchPassword value)? failedFetchPassword,
+    TResult Function(FailedRegisterPassword value)? failedRegisterPassword,
     TResult Function(FailedFetchAccount value)? failedFetchAccount,
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
@@ -994,6 +1421,8 @@ class _$FailedRestoreAccount extends FailedRestoreAccount
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() failedFetchPassword,
+    required TResult Function() failedRegisterPassword,
     required TResult Function() failedFetchAccount,
     required TResult Function() failedRegisterAccount,
     required TResult Function() failedUpdateAccount,
@@ -1010,6 +1439,8 @@ class _$FailedRestoreAccount extends FailedRestoreAccount
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? failedFetchPassword,
+    TResult Function()? failedRegisterPassword,
     TResult Function()? failedFetchAccount,
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
@@ -1026,6 +1457,8 @@ class _$FailedRestoreAccount extends FailedRestoreAccount
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? failedFetchPassword,
+    TResult Function()? failedRegisterPassword,
     TResult Function()? failedFetchAccount,
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
@@ -1046,6 +1479,9 @@ class _$FailedRestoreAccount extends FailedRestoreAccount
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(FailedFetchPassword value) failedFetchPassword,
+    required TResult Function(FailedRegisterPassword value)
+        failedRegisterPassword,
     required TResult Function(FailedFetchAccount value) failedFetchAccount,
     required TResult Function(FailedRegisterAccount value)
         failedRegisterAccount,
@@ -1064,6 +1500,8 @@ class _$FailedRestoreAccount extends FailedRestoreAccount
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(FailedFetchPassword value)? failedFetchPassword,
+    TResult Function(FailedRegisterPassword value)? failedRegisterPassword,
     TResult Function(FailedFetchAccount value)? failedFetchAccount,
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
@@ -1080,6 +1518,8 @@ class _$FailedRestoreAccount extends FailedRestoreAccount
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(FailedFetchPassword value)? failedFetchPassword,
+    TResult Function(FailedRegisterPassword value)? failedRegisterPassword,
     TResult Function(FailedFetchAccount value)? failedFetchAccount,
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
@@ -1152,6 +1592,8 @@ class _$NoBackupRestoreError extends NoBackupRestoreError
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() failedFetchPassword,
+    required TResult Function() failedRegisterPassword,
     required TResult Function() failedFetchAccount,
     required TResult Function() failedRegisterAccount,
     required TResult Function() failedUpdateAccount,
@@ -1168,6 +1610,8 @@ class _$NoBackupRestoreError extends NoBackupRestoreError
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? failedFetchPassword,
+    TResult Function()? failedRegisterPassword,
     TResult Function()? failedFetchAccount,
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
@@ -1184,6 +1628,8 @@ class _$NoBackupRestoreError extends NoBackupRestoreError
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? failedFetchPassword,
+    TResult Function()? failedRegisterPassword,
     TResult Function()? failedFetchAccount,
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
@@ -1204,6 +1650,9 @@ class _$NoBackupRestoreError extends NoBackupRestoreError
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(FailedFetchPassword value) failedFetchPassword,
+    required TResult Function(FailedRegisterPassword value)
+        failedRegisterPassword,
     required TResult Function(FailedFetchAccount value) failedFetchAccount,
     required TResult Function(FailedRegisterAccount value)
         failedRegisterAccount,
@@ -1222,6 +1671,8 @@ class _$NoBackupRestoreError extends NoBackupRestoreError
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(FailedFetchPassword value)? failedFetchPassword,
+    TResult Function(FailedRegisterPassword value)? failedRegisterPassword,
     TResult Function(FailedFetchAccount value)? failedFetchAccount,
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
@@ -1238,6 +1689,8 @@ class _$NoBackupRestoreError extends NoBackupRestoreError
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(FailedFetchPassword value)? failedFetchPassword,
+    TResult Function(FailedRegisterPassword value)? failedRegisterPassword,
     TResult Function(FailedFetchAccount value)? failedFetchAccount,
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
@@ -1310,6 +1763,8 @@ class _$FailedDeleteAllAccounts extends FailedDeleteAllAccounts
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() failedFetchPassword,
+    required TResult Function() failedRegisterPassword,
     required TResult Function() failedFetchAccount,
     required TResult Function() failedRegisterAccount,
     required TResult Function() failedUpdateAccount,
@@ -1326,6 +1781,8 @@ class _$FailedDeleteAllAccounts extends FailedDeleteAllAccounts
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? failedFetchPassword,
+    TResult Function()? failedRegisterPassword,
     TResult Function()? failedFetchAccount,
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
@@ -1342,6 +1799,8 @@ class _$FailedDeleteAllAccounts extends FailedDeleteAllAccounts
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? failedFetchPassword,
+    TResult Function()? failedRegisterPassword,
     TResult Function()? failedFetchAccount,
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
@@ -1362,6 +1821,9 @@ class _$FailedDeleteAllAccounts extends FailedDeleteAllAccounts
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(FailedFetchPassword value) failedFetchPassword,
+    required TResult Function(FailedRegisterPassword value)
+        failedRegisterPassword,
     required TResult Function(FailedFetchAccount value) failedFetchAccount,
     required TResult Function(FailedRegisterAccount value)
         failedRegisterAccount,
@@ -1380,6 +1842,8 @@ class _$FailedDeleteAllAccounts extends FailedDeleteAllAccounts
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(FailedFetchPassword value)? failedFetchPassword,
+    TResult Function(FailedRegisterPassword value)? failedRegisterPassword,
     TResult Function(FailedFetchAccount value)? failedFetchAccount,
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
@@ -1396,6 +1860,8 @@ class _$FailedDeleteAllAccounts extends FailedDeleteAllAccounts
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(FailedFetchPassword value)? failedFetchPassword,
+    TResult Function(FailedRegisterPassword value)? failedRegisterPassword,
     TResult Function(FailedFetchAccount value)? failedFetchAccount,
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
@@ -1468,6 +1934,8 @@ class _$NoAccountDeleteError extends NoAccountDeleteError
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() failedFetchPassword,
+    required TResult Function() failedRegisterPassword,
     required TResult Function() failedFetchAccount,
     required TResult Function() failedRegisterAccount,
     required TResult Function() failedUpdateAccount,
@@ -1484,6 +1952,8 @@ class _$NoAccountDeleteError extends NoAccountDeleteError
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? failedFetchPassword,
+    TResult Function()? failedRegisterPassword,
     TResult Function()? failedFetchAccount,
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
@@ -1500,6 +1970,8 @@ class _$NoAccountDeleteError extends NoAccountDeleteError
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? failedFetchPassword,
+    TResult Function()? failedRegisterPassword,
     TResult Function()? failedFetchAccount,
     TResult Function()? failedRegisterAccount,
     TResult Function()? failedUpdateAccount,
@@ -1520,6 +1992,9 @@ class _$NoAccountDeleteError extends NoAccountDeleteError
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(FailedFetchPassword value) failedFetchPassword,
+    required TResult Function(FailedRegisterPassword value)
+        failedRegisterPassword,
     required TResult Function(FailedFetchAccount value) failedFetchAccount,
     required TResult Function(FailedRegisterAccount value)
         failedRegisterAccount,
@@ -1538,6 +2013,8 @@ class _$NoAccountDeleteError extends NoAccountDeleteError
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(FailedFetchPassword value)? failedFetchPassword,
+    TResult Function(FailedRegisterPassword value)? failedRegisterPassword,
     TResult Function(FailedFetchAccount value)? failedFetchAccount,
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,
@@ -1554,6 +2031,8 @@ class _$NoAccountDeleteError extends NoAccountDeleteError
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(FailedFetchPassword value)? failedFetchPassword,
+    TResult Function(FailedRegisterPassword value)? failedRegisterPassword,
     TResult Function(FailedFetchAccount value)? failedFetchAccount,
     TResult Function(FailedRegisterAccount value)? failedRegisterAccount,
     TResult Function(FailedUpdateAccount value)? failedUpdateAccount,

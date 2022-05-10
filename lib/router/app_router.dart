@@ -6,6 +6,11 @@ class AppRouter {
 
   AppRouter(this.context);
 
+  /// 認証画面に遷移する
+  void toAuth() {
+    _pushAndRemoveUntil(const AuthPage());
+  }
+
   /// ホーム画面に遷移する
   void toHome() {
     _pushAndRemoveUntil(const HomePage());
