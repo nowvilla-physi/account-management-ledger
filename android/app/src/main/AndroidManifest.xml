@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.physi.nowvilla.account_management_ledger">
    <application
-        android:label="account_management_ledger"
+        android:label="アカウント管理台帳"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

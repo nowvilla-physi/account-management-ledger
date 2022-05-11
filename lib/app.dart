@@ -32,7 +32,7 @@ class App extends StatelessWidget {
           depth: Dimens.depth,
           intensity: 1,
         ),
-        home: const AuthPage(),
+        home: const HomePage(),
       ),
     );
   }
